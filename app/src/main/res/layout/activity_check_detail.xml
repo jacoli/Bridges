@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lichuange.bridges.activities.CheckDetailActivity">
+
+    <com.lichuange.bridges.views.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:id="@+id/myScrollView"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:divider="@drawable/linear_divider_horizon"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="40dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="30dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="项目名称："
+                    android:textColor="#82858b" />
+
+                <TextView
+                    android:id="@+id/projectNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="项目名称"
+                    android:textColor="#82858b" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="40dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="30dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="线路名称："
+                    android:textColor="#82858b" />
+
+                <TextView
+                    android:id="@+id/LineNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="项目名称"
+                    android:textColor="#82858b" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="40dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="30dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="控制区起始桩号："
+                    android:textColor="#82858b" />
+
+                <TextView
+                    android:id="@+id/ControlStartStackText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="项目名称"
+                    android:textColor="#82858b" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="40dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="30dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="控制区终止桩号："
+                    android:textColor="#82858b" />
+
+                <TextView
+                    android:id="@+id/ControlEndStackText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="项目名称"
+                    android:textColor="#82858b" />
+
+            </LinearLayout>
+
+
+            <!-- 工作区起始桩号-->
+            <include layout="@layout/work_start_stack_info"></include>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="540dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="48dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="作业控制区布置图："
+                    android:textColor="#82858b" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/imageView"
+                    android:background="#82858b"/>
+            </LinearLayout>
+
+
+            <include layout="@layout/boards_check_layout"></include>
+            <include layout="@layout/boards_status_layout"></include>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- 底部工具栏 -->
+    <LinearLayout android:layout_height="64dp"
+        android:layout_width="match_parent">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_btn"
+            android:layout_margin="8dp"
+            android:text="扫一扫"
+            android:id="@+id/scanBtn" />
+    </LinearLayout>
+
+</LinearLayout>

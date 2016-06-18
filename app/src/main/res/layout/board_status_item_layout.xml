@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_height="50dp"
+    android:layout_width="match_parent"
+    android:divider="@drawable/linear_divider"
+    android:showDividers="middle">
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="序号"
+        android:textColor="#82858b"
+        android:id="@+id/IndexText"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="感器编号"
+        android:id="@+id/SensorNumber"
+        android:textColor="#82858b" />
+
+
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="传感器桩号"
+        android:id="@+id/StackNumber"
+        android:textColor="#82858b" />
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/BatteryLevelImageView" />
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="更新时间"
+        android:id="@+id/AddDate"
+        android:textColor="#82858b" />
+
+    <FrameLayout
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:id="@+id/StatusFrameLayout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="状态"
+            android:id="@+id/Status"
+            android:textColor="#82858b" />
+
+        </FrameLayout>
+
+</LinearLayout>

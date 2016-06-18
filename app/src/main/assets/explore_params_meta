@@ -1,0 +1,1706 @@
+{
+    "items": [
+        {
+            "itemKey": "ObjectType",
+            "displayName": "养护对象",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "v1",
+            "defaultValue": "",
+            "valueRanges": {
+                "v1": [
+                    {
+                        "displayName": "道路",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "桥涵",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "隧道",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "平面交叉",
+                        "value": "4"
+                    },
+                    {
+                        "displayName": "收费广场",
+                        "value": "5"
+                    },
+                    {
+                        "displayName": "交通设施",
+                        "value": "6"
+                    }
+                ]
+            },
+            "conditions": []
+        },
+        {
+            "itemKey": "RoadType",
+            "displayName": "道路类型",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "v1",
+            "defaultValue": "",
+            "valueRanges": {
+                "v1": [
+                    {
+                        "displayName": "高速公路",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "一级公路",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "二三级公路",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "四级公路",
+                        "value": "4"
+                    }
+                ]
+            },
+            "conditions": []
+        },
+        {
+            "itemKey": "BridgeType",
+            "displayName": "桥梁类型",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "ObjectType_2": [
+                    {
+                        "displayName": "单孔桥梁",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "多孔桥梁",
+                        "value": "2"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "2"
+                    ],
+                    "itemValue": "ObjectType_2",
+                    "subConditions": []
+                }
+            ]
+        },
+        {
+            "itemKey": "TunnelType",
+            "displayName": "隧道类型",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "ObjectType_3": [
+                    {
+                        "displayName": "双洞单向",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "单洞双向",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "双洞单向隧道群",
+                        "value": "3"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "3"
+                    ],
+                    "itemValue": "ObjectType_3",
+                    "subConditions": []
+                }
+            ]
+        },
+        {
+            "itemKey": "CrossType",
+            "displayName": "交叉类型",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "ObjectType_4": [
+                    {
+                        "displayName": "十字交叉",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "环形交叉",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "T形交叉",
+                        "value": "3"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "4"
+                    ],
+                    "itemValue": "ObjectType_4",
+                    "subConditions": []
+                }
+            ]
+        },
+        {
+            "itemKey": "SquearType",
+            "displayName": "广场类型",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "ObjectType_5": [
+                    {
+                        "displayName": "主线收费广场",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "匝道收费广场",
+                        "value": "2"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "5"
+                    ],
+                    "itemValue": "ObjectType_5",
+                    "subConditions": []
+                }
+            ]
+        },
+        {
+            "itemKey": "TransitEquipment",
+            "displayName": "交通设施类型",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "ObjectType_6": [
+                    {
+                        "displayName": "交通标志",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "交通标线",
+                        "value": "2"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "5"
+                    ],
+                    "itemValue": "ObjectType_5",
+                    "subConditions": []
+                }
+            ]
+        },
+        {
+            "itemKey": "MaintenanceType",
+            "displayName": "养护内容",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "v1",
+            "defaultValue": "",
+            "valueRanges": {
+                "ObjectType_1_RoadType_1_2": [
+                    {
+                        "displayName": "封闭内侧车道",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "封闭外侧车道",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "封闭路肩",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "封闭内侧两个车道",
+                        "value": "4"
+                    },
+                    {
+                        "displayName": "封闭外侧两个车道",
+                        "value": "5"
+                    },
+                    {
+                        "displayName": "借用对向车道",
+                        "value": "6"
+                    },
+                    {
+                        "displayName": "入口匝道附近1",
+                        "value": "7"
+                    },
+                    {
+                        "displayName": "入口匝道附近2",
+                        "value": "8"
+                    },
+                    {
+                        "displayName": "出口匝道附近1",
+                        "value": "9"
+                    },
+                    {
+                        "displayName": "出口匝道附近2",
+                        "value": "10"
+                    },
+                    {
+                        "displayName": "匝道单车道封闭路肩",
+                        "value": "11"
+                    },
+                    {
+                        "displayName": "临时养护1",
+                        "value": "12"
+                    },
+                    {
+                        "displayName": "临时养护2",
+                        "value": "80"
+                    },
+                    {
+                        "displayName": "移动式标志车临时养护1",
+                        "value": "13"
+                    },
+                    {
+                        "displayName": "移动式标志车临时养护2",
+                        "value": "81"
+                    },
+                    {
+                        "displayName": "机械移动养护1",
+                        "value": "14"
+                    },
+                    {
+                        "displayName": "机械移动养护2",
+                        "value": "82"
+                    },
+                    {
+                        "displayName": "路肩人工移动养护",
+                        "value": "15"
+                    },
+                    {
+                        "displayName": "绿化灌溉作业1",
+                        "value": "16"
+                    },
+                    {
+                        "displayName": "绿化灌溉作业2",
+                        "value": "83"
+                    },
+                    {
+                        "displayName": "中央分隔带绿化修剪垃圾清理",
+                        "value": "17"
+                    }
+                ],
+                "ObjectType_1_RoadType_3": [
+                    {
+                        "displayName": "双向交替通行",
+                        "value": "18"
+                    },
+                    {
+                        "displayName": "双向通行",
+                        "value": "19"
+                    },
+                    {
+                        "displayName": "双向通行布置移动标志车",
+                        "value": "20"
+                    },
+                    {
+                        "displayName": "便道双向通行",
+                        "value": "21"
+                    },
+                    {
+                        "displayName": "弯道前养护双向交替通行",
+                        "value": "22"
+                    },
+                    {
+                        "displayName": "弯道后养护双向交替通行",
+                        "value": "23"
+                    },
+                    {
+                        "displayName": "弯道前养护双向通行",
+                        "value": "24"
+                    },
+                    {
+                        "displayName": "弯道后养护双向通行",
+                        "value": "25"
+                    },
+                    {
+                        "displayName": "连续弯道养护双向交替通行",
+                        "value": "26"
+                    },
+                    {
+                        "displayName": "连续弯道养护双向通行",
+                        "value": "27"
+                    },
+                    {
+                        "displayName": "反向弯道养护双向交替通行",
+                        "value": "28"
+                    },
+                    {
+                        "displayName": "反向弯道养护双向通行",
+                        "value": "29"
+                    },
+                    {
+                        "displayName": "回头弯道养护双向交替通行",
+                        "value": "30"
+                    },
+                    {
+                        "displayName": "回头弯道养护双向通行",
+                        "value": "31"
+                    },
+                    {
+                        "displayName": "纵坡路段养护双向交替通行",
+                        "value": "32"
+                    },
+                    {
+                        "displayName": "纵坡路段养护双向通行",
+                        "value": "33"
+                    },
+                    {
+                        "displayName": "平直路段临时养护",
+                        "value": "34"
+                    },
+                    {
+                        "displayName": "平直路段临时养护布置移动标志车",
+                        "value": "35"
+                    },
+                    {
+                        "displayName": "弯道路段临时养护",
+                        "value": "36"
+                    },
+                    {
+                        "displayName": "平直路段机械移动养护作业",
+                        "value": "37"
+                    },
+                    {
+                        "displayName": "弯道机械移动养护作业",
+                        "value": "38"
+                    },
+                    {
+                        "displayName": "人工移动养护作业1",
+                        "value": "39"
+                    },
+                    {
+                        "displayName": "人工移动养护作业2",
+                        "value": "84"
+                    },
+                    {
+                        "displayName": "人工移动养护作业3",
+                        "value": "85"
+                    }
+                ],
+                "ObjectType_1_RoadType_4": [
+                    {
+                        "displayName": "双向交替通行",
+                        "value": "40"
+                    },
+                    {
+                        "displayName": "双向通行",
+                        "value": "41"
+                    },
+                    {
+                        "displayName": "双向通行布置移动标志车",
+                        "value": "42"
+                    },
+                    {
+                        "displayName": "便道双向通行",
+                        "value": "43"
+                    },
+                    {
+                        "displayName": "弯道前养护双向交替通行",
+                        "value": "44"
+                    },
+                    {
+                        "displayName": "弯道后养护双向交替通行",
+                        "value": "45"
+                    }
+                ],
+                "ObjectType_2_RoadType_1_2": [
+                    {
+                        "displayName": "封闭内侧车道",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "封闭外侧车道",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "封闭路肩",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "封闭内侧两个车道",
+                        "value": "4"
+                    },
+                    {
+                        "displayName": "封闭外侧两个车道",
+                        "value": "5"
+                    },
+                    {
+                        "displayName": "借用对向车道",
+                        "value": "6"
+                    },
+                    {
+                        "displayName": "封闭非机动车道",
+                        "value": "46"
+                    },
+                    {
+                        "displayName": "伸缩缝常规检查或清理作业",
+                        "value": "47"
+                    },
+                    {
+                        "displayName": "伸缩缝更换作业（半幅）",
+                        "value": "48"
+                    },
+                    {
+                        "displayName": "伸缩缝更换作业（全幅）",
+                        "value": "49"
+                    }
+                ],
+                "ObjectType_2_RoadType_3": [
+                    {
+                        "displayName": "双向交替通行",
+                        "value": "18"
+                    },
+                    {
+                        "displayName": "双向通行",
+                        "value": "19"
+                    },
+                    {
+                        "displayName": "双向通行布置移动标志车",
+                        "value": "20"
+                    },
+                    {
+                        "displayName": "弯道前养护双向交替通行",
+                        "value": "22"
+                    },
+                    {
+                        "displayName": "弯道后养护双向交替通行",
+                        "value": "23"
+                    },
+                    {
+                        "displayName": "弯道前养护双向通行",
+                        "value": "24"
+                    },
+                    {
+                        "displayName": "弯道后养护双向通行",
+                        "value": "25"
+                    },
+                    {
+                        "displayName": "连续弯道养护双向交替通行",
+                        "value": "26"
+                    },
+                    {
+                        "displayName": "连续弯道养护双向通行",
+                        "value": "27"
+                    },
+                    {
+                        "displayName": "反向弯道养护双向交替通行",
+                        "value": "28"
+                    },
+                    {
+                        "displayName": "反向弯道养护双向通行",
+                        "value": "29"
+                    },
+                    {
+                        "displayName": "回头弯道养护双向交替通行",
+                        "value": "30"
+                    },
+                    {
+                        "displayName": "回头弯道养护双向通行",
+                        "value": "31"
+                    },
+                    {
+                        "displayName": "纵坡路段养护双向交替通行",
+                        "value": "32"
+                    },
+                    {
+                        "displayName": "纵坡路段养护双向通行",
+                        "value": "33"
+                    },
+                    {
+                        "displayName": "伸缩缝常规检查或清理作业",
+                        "value": "47"
+                    },
+                    {
+                        "displayName": "伸缩缝更换作业（半幅）",
+                        "value": "48"
+                    },
+                    {
+                        "displayName": "伸缩缝更换作业（全幅）",
+                        "value": "49"
+                    }
+                ],
+                "ObjectType_2_RoadType_4": [
+                    {
+                        "displayName": "双向交替通行",
+                        "value": "40"
+                    },
+                    {
+                        "displayName": "双向通行",
+                        "value": "41"
+                    },
+                    {
+                        "displayName": "双向通行布置移动标志车",
+                        "value": "42"
+                    },
+                    {
+                        "displayName": "便道双向通行",
+                        "value": "43"
+                    },
+                    {
+                        "displayName": "弯道前养护双向交替通行",
+                        "value": "44"
+                    },
+                    {
+                        "displayName": "伸缩缝常规检查或清理作业",
+                        "value": "47"
+                    },
+                    {
+                        "displayName": "伸缩缝更换作业（半幅）",
+                        "value": "48"
+                    },
+                    {
+                        "displayName": "伸缩缝更换作业（全幅）",
+                        "value": "49"
+                    }
+                ],
+                "ObjectType_3_RoadType_1_2": [
+                    {
+                        "displayName": "封闭内侧车道",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "封闭外侧车道",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "封闭路肩",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "封闭内侧两个车道",
+                        "value": "4"
+                    },
+                    {
+                        "displayName": "封闭外侧两个车道",
+                        "value": "5"
+                    },
+                    {
+                        "displayName": "单洞全封闭",
+                        "value": "50"
+                    },
+                    {
+                        "displayName": "临时养护",
+                        "value": "12"
+                    },
+                    {
+                        "displayName": "移动式标志车临时养护",
+                        "value": "13"
+                    },
+                    {
+                        "displayName": "机械移动养护",
+                        "value": "14"
+                    }
+                ],
+                "ObjectType_3_RoadType_3_4": [
+                    {
+                        "displayName": "双向交替通行",
+                        "value": "18"
+                    },
+                    {
+                        "displayName": "单洞全封闭",
+                        "value": "50"
+                    },
+                    {
+                        "displayName": "临时养护",
+                        "value": "12"
+                    },
+                    {
+                        "displayName": "移动式标志车临时养护",
+                        "value": "13"
+                    },
+                    {
+                        "displayName": "机械移动养护",
+                        "value": "14"
+                    }
+                ],
+                "ObjectType_4_CrossType_1": [
+                    {
+                        "displayName": "入口封闭借用对向车道交替通行",
+                        "value": "51"
+                    },
+                    {
+                        "displayName": "入口封闭借用对向车道双向通行",
+                        "value": "52"
+                    },
+                    {
+                        "displayName": "入口单车道封闭且本向车道维持通行",
+                        "value": "53"
+                    },
+                    {
+                        "displayName": "出口封闭借用对向车道交替通行",
+                        "value": "54"
+                    },
+                    {
+                        "displayName": "出口封闭借用对向车道双向通行",
+                        "value": "55"
+                    },
+                    {
+                        "displayName": "出口单车道封闭且本向车道维持通行",
+                        "value": "56"
+                    },
+                    {
+                        "displayName": "十字交叉中心养护",
+                        "value": "57"
+                    },
+                    {
+                        "displayName": "被交道为单车道四级公路",
+                        "value": "58"
+                    }
+                ],
+                "ObjectType_4_CrossType_2": [
+                    {
+                        "displayName": "封闭入口内侧车道",
+                        "value": "59"
+                    },
+                    {
+                        "displayName": "封闭入口外侧车道",
+                        "value": "60"
+                    },
+                    {
+                        "displayName": "封闭出口内侧车道",
+                        "value": "61"
+                    },
+                    {
+                        "displayName": "封闭出口外侧车道",
+                        "value": "62"
+                    },
+                    {
+                        "displayName": "全封闭出口车道",
+                        "value": "63"
+                    },
+                    {
+                        "displayName": "中心处封闭内侧车道",
+                        "value": "64"
+                    },
+                    {
+                        "displayName": "中心处封闭外侧车道",
+                        "value": "65"
+                    }
+                ],
+                "ObjectType_4_CrossType_3": [
+                    {
+                        "displayName": "入口封闭借用对向车道交替通行",
+                        "value": "51"
+                    },
+                    {
+                        "displayName": "入口封闭借用对向车道双向通行",
+                        "value": "52"
+                    },
+                    {
+                        "displayName": "入口单车道封闭且本向车道维持通行",
+                        "value": "53"
+                    }
+                ],
+                "ObjectType_5_SquearType_1": [
+                    {
+                        "displayName": "封闭入口内侧车道",
+                        "value": "66"
+                    },
+                    {
+                        "displayName": "封闭入口中间车道",
+                        "value": "67"
+                    },
+                    {
+                        "displayName": "封闭入口外侧车道",
+                        "value": "68"
+                    },
+                    {
+                        "displayName": "封闭出口内侧车道",
+                        "value": "69"
+                    },
+                    {
+                        "displayName": "封闭出口中间车道",
+                        "value": "70"
+                    },
+                    {
+                        "displayName": "封闭出口外侧车道",
+                        "value": "71"
+                    }
+                ],
+                "ObjectType_5_SquearType_2": [
+                    {
+                        "displayName": "入口匝道封闭内侧车道入口",
+                        "value": "72"
+                    },
+                    {
+                        "displayName": "入口匝道封闭外侧车道入口",
+                        "value": "73"
+                    },
+                    {
+                        "displayName": "入口匝道封闭内侧车道出口",
+                        "value": "74"
+                    },
+                    {
+                        "displayName": "入口匝道封闭外侧车道出口",
+                        "value": "75"
+                    },
+                    {
+                        "displayName": "入口匝道封闭内侧车道出入口",
+                        "value": "86"
+                    },
+                    {
+                        "displayName": "入口匝道封闭外侧车道出入口",
+                        "value": "87"
+                    },
+                    {
+                        "displayName": "出口匝道封闭内侧车道入口",
+                        "value": "88"
+                    },
+                    {
+                        "displayName": "出口匝道封闭外侧车道入口",
+                        "value": "89"
+                    },
+                    {
+                        "displayName": "出口匝道封闭内侧车道出口",
+                        "value": "90"
+                    },
+                    {
+                        "displayName": "出口匝道封闭外侧车道出口",
+                        "value": "91"
+                    },
+                    {
+                        "displayName": "出口匝道封闭内侧车道出入口",
+                        "value": "92"
+                    },
+                    {
+                        "displayName": "出口匝道封闭外侧车道出入口",
+                        "value": "93"
+                    }
+                ],
+                "ObjectType_6_TransitEquipment_1": [
+                    {
+                        "displayName": "封闭路肩临时养护",
+                        "value": "76"
+                    },
+                    {
+                        "displayName": "封闭车道临时养护",
+                        "value": "77"
+                    }
+                ],
+                "ObjectType_6_TransitEquipment_2": [
+                    {
+                        "displayName": "同向车道分隔标线养护/车辆导向箭头/路面文字/图形标记",
+                        "value": "78"
+                    },
+                    {
+                        "displayName": "双向通行中间渠化交通标线养护",
+                        "value": "79"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "1"
+                    ],
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "RoadType",
+                            "conditionValue": [
+                                "1",
+                                "2"
+                            ],
+                            "itemValue": "ObjectType_1_RoadType_1_2",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "RoadType",
+                            "conditionValue": [
+                                "3"
+                            ],
+                            "itemValue": "ObjectType_1_RoadType_3",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "RoadType",
+                            "conditionValue": [
+                                "4"
+                            ],
+                            "itemValue": "ObjectType_1_RoadType_4",
+                            "subConditions": []
+                        }
+                    ]
+                },
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "2"
+                    ],
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "RoadType",
+                            "conditionValue": [
+                                "1",
+                                "2"
+                            ],
+                            "itemValue": "ObjectType_2_RoadType_1_2",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "RoadType",
+                            "conditionValue": [
+                                "3"
+                            ],
+                            "itemValue": "ObjectType_2_RoadType_3",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "RoadType",
+                            "conditionValue": [
+                                "4"
+                            ],
+                            "itemValue": "ObjectType_2_RoadType_4",
+                            "subConditions": []
+                        }
+                    ]
+                },
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "3"
+                    ],
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "RoadType",
+                            "conditionValue": [
+                                "1",
+                                "2"
+                            ],
+                            "itemValue": "ObjectType_3_RoadType_1_2",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "RoadType",
+                            "conditionValue": [
+                                "3",
+                                "4"
+                            ],
+                            "itemValue": "ObjectType_3_RoadType_3_4",
+                            "subConditions": []
+                        }
+                    ]
+                },
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "4"
+                    ],
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "CrossType",
+                            "conditionValue": [
+                                "1"
+                            ],
+                            "itemValue": "ObjectType_4_CrossType_1",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "CrossType",
+                            "conditionValue": [
+                                "2"
+                            ],
+                            "itemValue": "ObjectType_4_CrossType_2",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "CrossType",
+                            "conditionValue": [
+                                "3"
+                            ],
+                            "itemValue": "ObjectType_4_CrossType_3",
+                            "subConditions": []
+                        }
+                    ]
+                },
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "5"
+                    ],
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "SquearType",
+                            "conditionValue": [
+                                "1"
+                            ],
+                            "itemValue": "ObjectType_5_SquearType_1",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "SquearType",
+                            "conditionValue": [
+                                "2"
+                            ],
+                            "itemValue": "ObjectType_5_SquearType_2",
+                            "subConditions": []
+                        }
+                    ]
+                },
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "6"
+                    ],
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "TransitEquipment",
+                            "conditionValue": [
+                                "1"
+                            ],
+                            "itemValue": "ObjectType_6_TransitEquipment_1",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "TransitEquipment",
+                            "conditionValue": [
+                                "2"
+                            ],
+                            "itemValue": "ObjectType_6_TransitEquipment_2",
+                            "subConditions": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "itemKey": "DesignSpeed",
+            "displayName": "设计速度",
+            "unit": "km/h",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "RoadType_1": [
+                    {
+                        "displayName": "120",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "100",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "80",
+                        "value": "3"
+                    }
+                ],
+                "RoadType_2": [
+                    {
+                        "displayName": "100",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "80",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "60",
+                        "value": "4"
+                    }
+                ],
+                "RoadType_3_4": [
+                    {
+                        "displayName": "80",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "60",
+                        "value": "4"
+                    },
+                    {
+                        "displayName": "40",
+                        "value": "5"
+                    },
+                    {
+                        "displayName": "30",
+                        "value": "6"
+                    },
+                    {
+                        "displayName": "20",
+                        "value": "7"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "1"
+                    ],
+                    "itemValue": "RoadType_1",
+                    "subConditions": []
+                },
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "2"
+                    ],
+                    "itemValue": "RoadType_2",
+                    "subConditions": []
+                },
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "3",
+                        "4"
+                    ],
+                    "itemValue": "RoadType_3_4",
+                    "subConditions": []
+                }
+            ]
+        },
+        {
+            "itemKey": "LaneNumber",
+            "displayName": "车道数",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "RoadType_1_2": [
+                    {
+                        "displayName": "四车道",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "六车道",
+                        "value": "4"
+                    },
+                    {
+                        "displayName": "八车道",
+                        "value": "5"
+                    }
+                ],
+                "RoadType_3": [
+                    {
+                        "displayName": "两车道",
+                        "value": "2"
+                    }
+                ],
+                "RoadType_4": [
+                    {
+                        "displayName": "单车道",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "两车道",
+                        "value": "2"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "1",
+                        "2"
+                    ],
+                    "itemValue": "RoadType_1_2",
+                    "subConditions": []
+                },
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "3"
+                    ],
+                    "itemValue": "RoadType_3",
+                    "subConditions": []
+                },
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "4"
+                    ],
+                    "itemValue": "RoadType_4",
+                    "subConditions": []
+                }
+            ]
+        },
+        {
+            "itemKey": "TrafficQ",
+            "displayName": "交通量",
+            "unit": "pcu/(h·ln)",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "RoadType_1_2": [
+                    {
+                        "displayName": "Q≤1400",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "1400＜Q≤1800",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "Q＞1800",
+                        "value": "3"
+                    }
+                ],
+                "RoadType_3_4": [
+                    {
+                        "displayName": "Q≤300",
+                        "value": "4"
+                    },
+                    {
+                        "displayName": "300＜Q≤700",
+                        "value": "5"
+                    },
+                    {
+                        "displayName": "Q＞700",
+                        "value": "6"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "1",
+                        "2"
+                    ],
+                    "itemValue": "RoadType_1_2",
+                    "subConditions": []
+                },
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "3",
+                        "4"
+                    ],
+                    "itemValue": "RoadType_3_4",
+                    "subConditions": []
+                }
+            ]
+        },
+        {
+            "itemKey": "DownSlope",
+            "displayName": "下坡坡度",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "v1": [
+                    {
+                        "displayName": "0~3%",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "3%-4%",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": ">4%",
+                        "value": "3"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "1",
+                        "2"
+                    ],
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "DesignSpeed",
+                            "conditionValue": [
+                                "1",
+                                "2",
+                                "3",
+                                "4"
+                            ],
+                            "itemValue": "v1",
+                            "subConditions": []
+                        }
+                    ]
+                },
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "3",
+                        "4"
+                    ],
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "DesignSpeed",
+                            "conditionValue": [
+                                "3",
+                                "4",
+                                "5",
+                                "6",
+                                "7"
+                            ],
+                            "itemValue": "v1",
+                            "subConditions": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "itemKey": "Radius",
+            "displayName": "平曲线半径",
+            "unit": "m",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "RoadType_3_4_DesignSpeed_3_4": [
+                    {
+                        "displayName": "R≤200",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "R＞200",
+                        "value": "2"
+                    }
+                ],
+                "RoadType_3_4_DesignSpeed_5_6": [
+                    {
+                        "displayName": "R≤100",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "R＞100",
+                        "value": "4"
+                    }
+                ],
+                "RoadType_3_4_DesignSpeed_7": [
+                    {
+                        "displayName": "R≤100",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "R＞100",
+                        "value": "4"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "3",
+                        "4"
+                    ],
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "DesignSpeed",
+                            "conditionValue": [
+                                "3",
+                                "4"
+                            ],
+                            "itemValue": "RoadType_3_4_DesignSpeed_3_4",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "DesignSpeed",
+                            "conditionValue": [
+                                "5",
+                                "6"
+                            ],
+                            "itemValue": "RoadType_3_4_DesignSpeed_5_6",
+                            "subConditions": []
+                        },
+                        {
+                            "conditionKey": "DesignSpeed",
+                            "conditionValue": [
+                                "7"
+                            ],
+                            "itemValue": "RoadType_3_4_DesignSpeed_7",
+                            "subConditions": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "itemKey": "WindingType",
+            "displayName": "弯道类型",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "RoadType_3_4": [
+                    {
+                        "displayName": "直道",
+                        "value": "0"
+                    },
+                    {
+                        "displayName": "弯道",
+                        "value": "1"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "3",
+                        "4"
+                    ],
+                    "itemValue": "RoadType_3_4",
+                    "subConditions": []
+                }
+            ]
+        },
+        {
+            "itemKey": "CloseType",
+            "displayName": "封道方式",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "RoadType_1_2": [
+                    {
+                        "displayName": "封闭车道",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "封闭路肩",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "借用对向车道通行",
+                        "value": "3"
+                    }
+                ],
+                "RoadType_3_4": [
+                    {
+                        "displayName": "封闭车道",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "封闭路肩",
+                        "value": "2"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "1",
+                        "2"
+                    ],
+                    "itemValue": "RoadType_1_2",
+                    "subConditions": []
+                },
+                {
+                    "conditionKey": "RoadType",
+                    "conditionValue": [
+                        "3",
+                        "4"
+                    ],
+                    "itemValue": "RoadType_3_4",
+                    "subConditions": []
+                }
+            ]
+        },
+        {
+            "itemKey": "LaneWidth",
+            "displayName": "预留车道宽度",
+            "unit": "m",
+            "selectionMode": "selection",
+            "defaultValueRange": "v1",
+            "defaultValue": "",
+            "valueRanges": {
+                "v1": [
+                    {
+                        "displayName": "3.75",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "3.50",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "3.25",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "3.00",
+                        "value": "4"
+                    }
+                ]
+            },
+            "conditions": []
+        },
+        {
+            "itemKey": "CloseLaneWidth",
+            "displayName": "封闭车道宽度",
+            "unit": "m",
+            "selectionMode": "selection",
+            "defaultValueRange": "v1",
+            "defaultValue": "",
+            "valueRanges": {
+                "v1": [
+                    {
+                        "displayName": "3.75",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "3.50",
+                        "value": "2"
+                    },
+                    {
+                        "displayName": "3.25",
+                        "value": "3"
+                    },
+                    {
+                        "displayName": "3.00",
+                        "value": "4"
+                    }
+                ]
+            },
+            "conditions": []
+        },
+        {
+            "itemKey": "CenterDisp",
+            "displayName": "中央分隔带开口间距",
+            "unit": "m",
+            "selectionMode": "edit_number",
+            "defaultValueRange": "",
+            "defaultValue": "3000",
+            "valueRanges": {},
+            "conditions": [],
+            "minValue": "0",
+            "maxValue": "9999"
+        },
+        {
+            "itemKey": "LateralBuffer",
+            "displayName": "横向缓冲区",
+            "unit": "m",
+            "selectionMode": "edit_number",
+            "defaultValueRange": "",
+            "defaultValue": "0.5",
+            "valueRanges": {},
+            "conditions": [],
+            "minValue": "0",
+            "maxValue": "0.5"
+        },
+        {
+            "itemKey": "WindingStart",
+            "displayName": "弯道起点位置",
+            "unit": "m",
+            "selectionMode": "edit_text",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {},
+            "conditions": [
+                {
+                    "conditionKey": "WindingType",
+                    "conditionValue": [
+                        "1"
+                    ],
+                    "itemValue": "EditAllowed",
+                    "subConditions": []
+                }
+            ],
+            "minValue": "",
+            "maxValue": "",
+            "RegEx": "K1+100"
+        },
+        {
+            "itemKey": "BridgeZH1",
+            "displayName": "桥梁起始位置桥头桩号",
+            "unit": "",
+            "selectionMode": "edit_text",
+            "defaultValueRange": "EditAllowed",
+            "defaultValue": "",
+            "valueRanges": {},
+            "conditions": [
+            ],
+            "minValue": "",
+            "maxValue": "",
+            "RegEx": "K1+100"
+        },
+        {
+            "itemKey": "BridgeZH2",
+            "displayName": "桥梁起始位置桥尾桩号",
+            "unit": "",
+            "selectionMode": "edit_text",
+            "defaultValueRange": "EditAllowed",
+            "defaultValue": "",
+            "valueRanges": {},
+            "conditions": [
+            ],
+            "minValue": "",
+            "maxValue": "",
+            "RegEx": "K1+100"
+        },
+        {
+            "itemKey": "QZH1",
+            "displayName": "上一个隧道前端桩号",
+            "unit": "",
+            "selectionMode": "edit_text",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {},
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "3"
+                    ],
+                    "itemValue": "EditAllowed",
+                    "subConditions": []
+                }
+            ],
+            "minValue": "",
+            "maxValue": "",
+            "RegEx": "K1+100"
+        },
+        {
+            "itemKey": "QZH2",
+            "displayName": "上一个隧道尾端桩号",
+            "unit": "",
+            "selectionMode": "edit_text",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {},
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "3"
+                    ],
+                    "itemValue": "EditAllowed",
+                    "subConditions": []
+                }
+            ],
+            "minValue": "",
+            "maxValue": "",
+            "RegEx": "K1+100"
+        },
+        {
+            "itemKey": "SZH1",
+            "displayName": "进行养护作业的隧道前端桩号",
+            "unit": "",
+            "selectionMode": "edit_text",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {},
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "3"
+                    ],
+                    "itemValue": "EditAllowed",
+                    "subConditions": []
+                }
+            ],
+            "minValue": "",
+            "maxValue": "",
+            "RegEx": "K1+100"
+        },
+        {
+            "itemKey": "SZH2",
+            "displayName": "进行养护作业的隧道尾端桩号",
+            "unit": "",
+            "selectionMode": "edit_text",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {},
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "3"
+                    ],
+                    "itemValue": "EditAllowed",
+                    "subConditions": []
+                }
+            ],
+            "minValue": "",
+            "maxValue": "",
+            "RegEx": "K1+100"
+        },
+        {
+            "itemKey": "IsRushHour",
+            "displayName": "车辆是否会排队",
+            "unit": "",
+            "selectionMode": "selection",
+            "defaultValueRange": "",
+            "defaultValue": "",
+            "valueRanges": {
+                "ObjectType_2": [
+                    {
+                        "displayName": "否",
+                        "value": "1"
+                    },
+                    {
+                        "displayName": "是",
+                        "value": "2"
+                    }
+                ]
+            },
+            "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "2"
+                    ],
+                    "itemValue": "ObjectType_2",
+                    "subConditions": []
+                }
+            ]
+        }
+    ]
+}

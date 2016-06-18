@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="64dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="130dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="defaultParam"
+            android:id="@+id/paramName"
+            />
+
+    </LinearLayout>
+
+    <EditText
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_editview"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:id="@+id/edit_text"
+        android:hint="请输入"
+        android:singleLine="true"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="范围(0-9999)"
+            android:id="@+id/valueRangeText"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

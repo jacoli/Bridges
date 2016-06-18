@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion Integer.parseInt(System.getProperty("compileSdkVersion", "23"))
+    buildToolsVersion System.getProperty("buildToolsVersion", "23.0.2")
+
+    defaultConfig {
+        minSdkVersion Integer.parseInt(System.getProperty("minSdkVersion", "14"))
+        targetSdkVersion Integer.parseInt(System.getProperty("targetSdkVersion", "23"))
+        versionCode Integer.parseInt(System.getProperty("versionCode", "1"))
+        versionName System.getProperty("versionName", "1.0.0")
+    }
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            res.srcDirs = ['res']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    // 单独编译生成aar
+//    def outputPathName = "./build/outputs/aar/falcon_scanner-1.0.0-SNAPSHOT.aar";
+//    libraryVariants.all { variant ->
+//        variant.outputs.each  { output ->
+//            //开始输出
+//            output.outputFile = new File(outputPathName)
+//        }
+//    }
+}
+
+// 单独编译时还需要在自己project中指定buildScript的repo和classpath
+//buildscript {
+//    repositories {
+//        maven { url "http://mvnrepo.alibaba-inc.com/mvn/repository" }
+//        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+//        jcenter();
+//    }
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:1.1.0'
+//    }
+//}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.google.zxing:core:3.2.1@jar'
+}
+

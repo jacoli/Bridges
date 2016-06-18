@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="0dp"
+    android:paddingEnd="0dp"
+    android:divider="@drawable/linear_divider_horizon"
+    android:showDividers="middle"
+    android:id="@+id/BoardsCheckContainerLayout">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:paddingStart="48dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="标志牌数量位置检查："
+            android:textColor="#82858b" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0/0"
+            android:textColor="#82858b"
+            android:id="@+id/CheckedItemsCount"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:divider="@drawable/linear_divider"
+        android:showDividers="middle">
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="序号"
+            android:textColor="#82858b" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="名称"
+            android:textColor="#82858b" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="图案"
+            android:textColor="#82858b" />
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="设计桩号"
+            android:textColor="#82858b" />
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="实际桩号"
+            android:textColor="#82858b" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:divider="@drawable/linear_divider_horizon"
+        android:showDividers="middle"
+        android:id="@+id/content">
+    </LinearLayout>
+
+</LinearLayout>
