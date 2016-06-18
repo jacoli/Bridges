@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_height="50dp"
+    android:layout_width="match_parent"
+    android:divider="@drawable/linear_divider"
+    android:showDividers="middle">
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="序号"
+        android:textColor="#82858b"
+        android:id="@+id/IndexText"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="名称"
+        android:id="@+id/NameText"
+        android:textColor="#82858b" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/ImageView" />
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="数量"
+        android:id="@+id/DesignedStackText"
+        android:textColor="#82858b" />
+
+
+    <FrameLayout
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:id="@+id/RealStackTextFrameLayout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="备注"
+            android:id="@+id/RealStackText"
+            android:textColor="#82858b" />
+
+    </FrameLayout>
+
+</LinearLayout>

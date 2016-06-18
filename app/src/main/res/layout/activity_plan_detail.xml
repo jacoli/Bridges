@@ -12,10 +12,228 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <ListView
+    <ScrollView
+        android:id="@+id/myScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listView"
-        />
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:divider="@drawable/linear_divider_horizon"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="40dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="30dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="项目名称："
+                    android:textColor="#82858b" />
+
+                <TextView
+                    android:id="@+id/projectNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#82858b" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="40dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="30dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="时间："
+                    android:textColor="#82858b" />
+
+                <TextView
+                    android:id="@+id/TimeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#82858b" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="40dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="30dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="线路名称："
+                    android:textColor="#82858b" />
+
+                <TextView
+                    android:id="@+id/LineNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#82858b" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="40dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="30dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="控制区起始桩号："
+                    android:textColor="#82858b" />
+
+                <TextView
+                    android:id="@+id/ControlStartStackText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text=""
+                    android:textColor="#82858b" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="40dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="30dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="控制区终止桩号："
+                    android:textColor="#82858b" />
+
+                <TextView
+                    android:id="@+id/ControlEndStackText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text=""
+                    android:textColor="#82858b" />
+
+            </LinearLayout>
+
+
+            <!-- 工作区起始桩号-->
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_height="80dp"
+                android:layout_width="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_height="40dp"
+                    android:layout_width="match_parent">
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingStart="30dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="工作区起始桩号："
+                        android:textColor="#82858b" />
+
+                    <TextView
+                        android:id="@+id/WorkStartStackText"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="项目名称"
+                        android:textColor="#82858b" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_height="40dp"
+                    android:layout_width="match_parent">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingStart="40dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="经度：，纬度："
+                        android:textColor="#82858b"
+                        android:id="@+id/WorkStackLocationText"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="540dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="48dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="作业控制区布置图："
+                    android:textColor="#82858b" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/imageView"
+                    android:background="#82858b"/>
+            </LinearLayout>
+
+
+            <include layout="@layout/plan_detail_table1"></include>
+            <include layout="@layout/plan_detail_table2"></include>
+            <include layout="@layout/plan_detail_table3"></include>
+            <!--<include layout="@layout/plan_detail_table"></include>-->
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

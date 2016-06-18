@@ -26,7 +26,7 @@ public class PlanDetailModel extends MsgResponseBase {
     private String Table2Count;
     private List<Sign> table2;
     private String Table3Count;
-    private List<Sign> table3;
+    private List<Sign2> table3;
 
     public String getProjectName() {
         return ProjectName;
@@ -188,11 +188,11 @@ public class PlanDetailModel extends MsgResponseBase {
         Table3Count = table3Count;
     }
 
-    public List<Sign> getTable3() {
+    public List<Sign2> getTable3() {
         return table3;
     }
 
-    public void setTable3(List<Sign> table3) {
+    public void setTable3(List<Sign2> table3) {
         this.table3 = table3;
     }
 
@@ -251,6 +251,64 @@ public class PlanDetailModel extends MsgResponseBase {
 
         public void setSignRemark(String signRemark) {
             SignRemark = signRemark;
+        }
+    }
+
+    public class Sign2 {
+        private String SignNumber;
+        private String SignCode;
+        private String SignName;
+        private String SignImageURL;
+        private String StackNumber;
+        private String SignRemark;
+
+
+        public String getSignNumber() {
+            return SignNumber;
+        }
+
+        public void setSignNumber(String signNumber) {
+            SignNumber = signNumber;
+        }
+
+        public String getSignCode() {
+            return SignCode;
+        }
+
+        public void setSignCode(String signCode) {
+            SignCode = signCode;
+        }
+
+        public String getSignName() {
+            return SignName;
+        }
+
+        public void setSignName(String signName) {
+            SignName = signName;
+        }
+
+        public String getSignImageURL() {
+            return SignImageURL;
+        }
+
+        public void setSignImageURL(String signImageURL) {
+            SignImageURL = signImageURL;
+        }
+
+        public String getSignRemark() {
+            return SignRemark;
+        }
+
+        public void setSignRemark(String signRemark) {
+            SignRemark = signRemark;
+        }
+
+        public String getStackNumber() {
+            return StackNumber;
+        }
+
+        public void setStackNumber(String stackNumber) {
+            StackNumber = stackNumber;
         }
     }
 }
