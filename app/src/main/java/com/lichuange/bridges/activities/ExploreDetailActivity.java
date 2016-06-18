@@ -412,6 +412,7 @@ public class ExploreDetailActivity extends MyBaseActivity {
         String value = model.getParams().get(item.getItemKey());
         if (value == null || value.length() == 0) {
             value = item.getDefaultValue();
+            model.getParams().put(item.getItemKey(), item.getDefaultValue());
         }
 
         editText.setText(value);
@@ -487,6 +488,7 @@ public class ExploreDetailActivity extends MyBaseActivity {
             String value = model.getParams().get(item.getItemKey());
             if (value == null || value.length() == 0) {
                 value = item.getDefaultValue();
+                model.getParams().put(item.getItemKey(), item.getDefaultValue());
             }
 
             editText.setText(value);
