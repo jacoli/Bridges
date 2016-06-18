@@ -2,18 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/lichuange/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jar="/Users/lichuange/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/okio-1.6.0_34a5eeaa59e3f41e65af65dfe941bc4d5c4d7bcd.jar" />
-    </item>
-    <item
-        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.1_8a458dbba7887bb8e2e1426e963c663984c8a8f2.jar" />
+        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/core-3.2.1_84dc32e0b15af3e5e954a44c15275d2047a82121.jar" />
     </item>
     <item
         jar="/Users/lichuange/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.1/296dfb44fbf31397c0306e60cb62e06ca40df07f/universal-image-loader-1.9.1.jar"
@@ -23,67 +16,32 @@
         <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.1_014a59a60a0693f5754dd199825dfe9411488095.jar" />
     </item>
     <item
-        jar="/Users/lichuange/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
+        jar="/Users/lichuange/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/core-3.2.1_84dc32e0b15af3e5e954a44c15275d2047a82121.jar" />
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/okio-1.6.0_34a5eeaa59e3f41e65af65dfe941bc4d5c4d7bcd.jar" />
     </item>
     <item
-        jar="/Users/lichuange/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.1_c0937a97a2229a75e3b974185a8e0aa8ab01692e.jar" />
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.3.0_2b3507844a47be52dab33a55fa68f8ae8e1aa4e0.jar" />
     </item>
     <item
-        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/jars/classes.jar"
+        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.2.1_8071e624800898cfd5da36801668552c42f9446a.jar" />
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.3.0_1438d837ee2c13c5fab5feb693abb47fe6cf8233.jar" />
     </item>
     <item
-        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/jars/classes.jar"
+        jar="/Users/lichuange/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="673d77a5bbddd766037f088e775df525c46407f0">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.2.1_06ef33fd747c5310439a48e15e86670d07aa14e5.jar" />
-    </item>
-    <item
-        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.2.1_cfd13962ecc7920c9a0c7a4420c04f764cbc5254.jar" />
-    </item>
-    <item
-        jar="/Users/lichuange/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/okhttp-3.2.0_73777416c5497f88f6e5ee57aa18fc643a5881e4.jar" />
-    </item>
-    <item
-        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/Bridges/falcon_scanner/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="13d5cbcea2145473e530cd6ec4d2688e6a7b1e8f">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/Bridges-falcon_scanner-unspecified_8131145c801fc0036ef9c9ad817d2292ade13bb6.jar" />
-    </item>
-    <item
-        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.2.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.2.1_ed2dfbb8f630ff61ca3c98ad22f471746d523c0e.jar" />
-    </item>
-    <item
-        jar="/Users/lichuange/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/gson-2.2.4_d6997036ef24f57b832d34d77e771fbb2027bdfb.jar" />
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/support-annotations-23.3.0_e69d353dbbfb47ad80355a783546877e3f6b8d57.jar" />
     </item>
     <item
         jar="/Users/lichuange/.gradle/caches/modules-2/files-2.1/com.alibaba/fastjson/1.1.15/34b4cd8952af68ec70a0f5945ba35ed26cbd2418/fastjson-1.1.15.jar"
@@ -93,18 +51,60 @@
         <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/fastjson-1.1.15_e9f5a4eed3453dd64fddb9323547ef76f7049c3c.jar" />
     </item>
     <item
-        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/jars/classes.jar"
+        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.2.1_829da9e1b18d8a9ac5aea21ce1fc8830a188004a.jar" />
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/internal_impl-23.3.0_f239abe94e5dab3dbe46fc7cda6e8ab66f74c710.jar" />
     </item>
     <item
-        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/jars/classes.jar"
+        jar="/Users/lichuange/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
-        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.2.1_6edb966371a7a841cf7258fca0a06cc70fc2c0eb.jar" />
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/gson-2.2.4_d6997036ef24f57b832d34d77e771fbb2027bdfb.jar" />
+    </item>
+    <item
+        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.3.0_c2592ce08ba1e4b3c2c7e5907c61f21a8d65a6ba.jar" />
+    </item>
+    <item
+        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/Bridges/falcon_scanner/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e9a69ca8089aa7e66f38e91e995e7092a812dd4f">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/Bridges-falcon_scanner-unspecified_8131145c801fc0036ef9c9ad817d2292ade13bb6.jar" />
+    </item>
+    <item
+        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.3.0_8c326f9337d695d771a5ec987095894c841ffac7.jar" />
+    </item>
+    <item
+        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.3.0_20337d2e5c7747a0e7842edd3a2b9da71ae7b3dc.jar" />
+    </item>
+    <item
+        jar="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.3.0_e9d17046b14b612142b1f9b3e3f359b3007d2ee9.jar" />
+    </item>
+    <item
+        jar="/Users/lichuange/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="/Users/lichuange/Desktop/Codes/Bridges/app/build/intermediates/pre-dexed/debug/okhttp-3.2.0_73777416c5497f88f6e5ee57aa18fc643a5881e4.jar" />
     </item>
 
 </items>

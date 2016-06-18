@@ -2,30 +2,8 @@ package com.lichuange.bridges.models;
 
 import java.util.List;
 
-public class ProjectsModel {
-    private int Status;
-    private String Msg;
+public class ProjectsModel extends MsgResponseBase {
     private List<ProjectInfo> items;
-
-    public boolean isValid() {
-        return Status == 0;
-    }
-
-    public int getStatus() {
-        return Status;
-    }
-
-    public void setStatus(int status) {
-        Status = status;
-    }
-
-    public String getMsg() {
-        return Msg;
-    }
-
-    public void setMsg(String msg) {
-        Msg = msg;
-    }
 
     public List<ProjectInfo> getItems() {
         return items;

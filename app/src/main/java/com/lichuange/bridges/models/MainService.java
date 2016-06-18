@@ -153,6 +153,15 @@ public class MainService {
         }
     }
 
+    private void notifyMsg(Handler handler, int msgCode, MsgResponseBase model) {
+        if (handler != null) {
+            Message msg = new Message();
+            msg.what = msgCode;
+            msg.obj = model;
+            handler.sendMessage(msg);
+        }
+    }
+
     public boolean login(final String username, final String password, final Handler handler) {
         if (username.length() == 0 || password.length() == 0) {
             return false;
@@ -271,57 +280,71 @@ public class MainService {
             return false;
         }
 
-        Runnable networkTask = new Runnable() {
+        String url = serverBaseUrl + "/Maintain/APP.ashx?Type=GetProjectList";
+        BGRequest req = new BGRequest() {
+            @Override
+            public void success(MsgResponseBase res) {
+                setProjectsModel((ProjectsModel)res);
+                notifyMsg(handler, MSG_QUERY_PROJECTS_SUCCESS);
+            }
 
             @Override
-            public void run() {
-                try {
-                    String url = serverBaseUrl + "/Maintain/APP.ashx?Type=GetProjectList";
-
-                    FormBody body = new FormBody.Builder()
-                            .add("Token", getLoginModel().getToken())
-                            .add("ProjectType", "0")
-                            .build();
-
-                    Request request = new Request.Builder()
-                            .url(url)
-                            .post(body)
-                            .build();
-
-                    Response response = httpClient.newCall(request).execute();
-                    if (response.isSuccessful()) {
-                        String responseStr = response.body().string();
-
-                        Log.i("MainService", responseStr);
-
-                        //responseStr = responseStr.substring(1, responseStr.length() - 1);
-                        responseStr = responsePrevProcess(responseStr);
-
-                        //String mockStr = "{\"Status\":0,\"Msg\":\"OK\",\"items\":[{\"ID\":\"3ce270d6-45cf-476d-af6f-ff716ef4c5bf\",\"ProjectNumber\":\"P201603110001\",\"ProjectName\":\"杭州到宁波\"},{\"ID\":\"a041648d-b286-474b-bdd0-6e5af81906f7\",\"ProjectNumber\":\"P201603240002\",\"ProjectName\":\"养护12\"}]}";
-
-                        Gson gson = new Gson();
-                        setProjectsModel(gson.fromJson(responseStr, ProjectsModel.class));
-
-                        if (getProjectsModel() != null
-                                && getProjectsModel().isValid()) {
-                            notifyMsg(handler, MSG_QUERY_PROJECTS_SUCCESS);
-                        }
-                        else {
-                            notifyMsg(handler, MSG_QUERY_PROJECTS_FAILED);
-                        }
-                    }
-                    else {
-                        notifyMsg(handler, MSG_QUERY_PROJECTS_FAILED);
-                    }
-                }
-                catch (IOException e) {
-                    notifyMsg(handler, MSG_QUERY_PROJECTS_FAILED);
-                }
+            public void failed(MsgResponseBase res) {
+                notifyMsg(handler, MSG_QUERY_PROJECTS_FAILED);
             }
         };
+        return req.addParam("Token", getLoginModel().getToken())
+                .addParam("ProjectType", "0")
+                .send(url, ProjectsModel.class);
+    }
 
-        new Thread(networkTask).start();
-        return true;
+    public boolean sendPlanProjectsQuery(final Handler handler) {
+        if (getLoginModel() == null || !getLoginModel().isLoginSuccess()) {
+            return false;
+        }
+
+        String url = serverBaseUrl + "/Maintain/APP.ashx?Type=GetProjectList";
+        BGRequest req = new BGRequest() {
+            @Override
+            public void success(MsgResponseBase model) {
+                //setProjectsModel((ProjectsModel)res);
+                notifyMsg(handler, MSG_QUERY_PROJECTS_SUCCESS, model);
+            }
+
+            @Override
+            public void failed(MsgResponseBase model) {
+                notifyMsg(handler, MSG_QUERY_PROJECTS_FAILED, model);
+            }
+        };
+        return req.addParam("Token", getLoginModel().getToken())
+                .addParam("ProjectType", "1")
+                .send(url, ProjectsModel.class);
+    }
+
+    public boolean sendPlanProjectDetailQuery(final String ProjectID, final Handler handler) {
+        if (getLoginModel() == null || !getLoginModel().isLoginSuccess()) {
+            return false;
+        }
+
+        if (ProjectID.length() == 0) {
+            return false;
+        }
+
+        String url = serverBaseUrl + "/Maintain/APP.ashx?Type=GetSchemeDetail";
+        BGRequest req = new BGRequest() {
+            @Override
+            public void success(MsgResponseBase model) {
+                notifyMsg(handler, MSG_QUERY_PROJECT_DETAIL_SUCCESS, model);
+            }
+
+            @Override
+            public void failed(MsgResponseBase model) {
+                notifyMsg(handler, MSG_QUERY_PROJECT_DETAIL_FAILED, model);
+            }
+        };
+        return req.addParam("Token", getLoginModel().getToken())
+                .addParam("ProjectID", ProjectID)
+                .send(url, PlanDetailModel.class);
     }
 
     public boolean sendProjectDetailQuery(final String ProjectID, final Handler handler) {
