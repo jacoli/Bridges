@@ -13,6 +13,8 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.lichuange.bridges.R;
+import com.lichuange.bridges.activities.CheckDetailActivity;
+import com.lichuange.bridges.activities.PlanListActivity;
 import com.lichuange.bridges.activities.WebViewActivity;
 import com.lichuange.bridges.models.MainService;
 
@@ -64,21 +66,15 @@ public class PlanFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position < 3) {
-                    if (true) {
-                        Intent intent = new Intent(getActivity(), WebViewActivity.class);
-                        String token = MainService.getInstance().getLoginModel().getToken();
-                        String url = "http://139.196.200.114:8888/Maintain/APP.ashx?Type=LoginWeb&Token=" + token;
-                        intent.putExtra(WebViewActivity.WEBVIEW_EXTRA_URL, url);
-                        intent.putExtra(WebViewActivity.WEBVIEW_EXTRA_TITLE, models[position]);
-                        startActivity(intent);
-                    } else {
-                        String token = MainService.getInstance().getLoginModel().getToken();
-                        String url = "http://139.196.200.114:8888/Maintain/APP.ashx?Type=LoginWeb&Token=" + token;
-                        Uri uri = Uri.parse(url);
-                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                        startActivity(intent);
-                    }
+                    Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                    String token = MainService.getInstance().getLoginModel().getToken();
+                    String url = "http://139.196.200.114:8888/Maintain/APP.ashx?Type=LoginWeb&Token=" + token;
+                    intent.putExtra(WebViewActivity.WEBVIEW_EXTRA_URL, url);
+                    intent.putExtra(WebViewActivity.WEBVIEW_EXTRA_TITLE, models[position]);
+                    startActivity(intent);
                 } else {
+                    Intent intent = new Intent(getActivity(), PlanListActivity.class);
+                    startActivity(intent);
                 }
             }
         });

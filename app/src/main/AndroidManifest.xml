@@ -54,6 +54,11 @@
         <activity
             android:name=".activities.PlanDetailActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PlanListActivity"
+            android:label="@string/title_activity_plan_list"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

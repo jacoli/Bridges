@@ -31,6 +31,7 @@ public class MyBaseActivity extends Activity {
             super.handleMessage(msg);
             if (weakActivity != null) {
                 weakActivity.get().onResponse(msg.what);
+                weakActivity.get().onResponse(msg.what, msg.obj);
             }
         }
     }
@@ -84,6 +85,9 @@ public class MyBaseActivity extends Activity {
     }
 
     public void onResponse(int msgCode) {
+    }
+
+    public void onResponse(int msgCode, Object obj) {
     }
 
     public static boolean hasKitKat() {

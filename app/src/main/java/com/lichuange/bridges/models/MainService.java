@@ -307,7 +307,6 @@ public class MainService {
         BGRequest req = new BGRequest() {
             @Override
             public void success(MsgResponseBase model) {
-                //setProjectsModel((ProjectsModel)res);
                 notifyMsg(handler, MSG_QUERY_PROJECTS_SUCCESS, model);
             }
 
