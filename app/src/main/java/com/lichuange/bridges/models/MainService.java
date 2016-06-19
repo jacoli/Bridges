@@ -316,7 +316,7 @@ public class MainService {
             }
         };
         return req.addParam("Token", getLoginModel().getToken())
-                .addParam("ProjectType", "1")
+                .addParam("ProjectType", "0")
                 .send(url, ProjectsModel.class);
     }
 

@@ -7,7 +7,7 @@
     android:showDividers="middle">
 
     <TextView
-        android:layout_width="80dp"
+        android:layout_width="40dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceSmall"

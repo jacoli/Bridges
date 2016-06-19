@@ -20,7 +20,7 @@
             android:gravity="center_vertical"
             android:paddingStart="0dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="表3.标志牌位置:"
+            android:text="标志牌位置:"
             android:textColor="#82858b" />
     </LinearLayout>
 
@@ -32,11 +32,11 @@
         android:showDividers="middle">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="桩号"
+            android:text="序号"
             android:textColor="#82858b" />
 
         <TextView
@@ -45,7 +45,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="标志名称"
+            android:text="名称"
             android:textColor="#82858b" />
 
         <TextView
@@ -57,11 +57,11 @@
             android:textColor="#82858b" />
 
         <TextView
-            android:layout_width="75dp"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="备注"
+            android:text="设计桩号"
             android:textColor="#82858b" />
 
     </LinearLayout>

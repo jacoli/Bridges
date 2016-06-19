@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class PlanDetailModel extends MsgResponseBase {
     private String ProjectName;
-    private String ExplorDate;
+    private String ImplementStartDate;
     private String LineName;
     private String ControlStartStack;
     private String ControlEndStack;
@@ -34,14 +34,6 @@ public class PlanDetailModel extends MsgResponseBase {
 
     public void setProjectName(String projectName) {
         ProjectName = projectName;
-    }
-
-    public String getExplorDate() {
-        return ExplorDate;
-    }
-
-    public void setExplorDate(String explorDate) {
-        ExplorDate = explorDate;
     }
 
     public String getLineName() {
@@ -194,6 +186,14 @@ public class PlanDetailModel extends MsgResponseBase {
 
     public void setTable3(List<Sign2> table3) {
         this.table3 = table3;
+    }
+
+    public String getImplementStartDate() {
+        return ImplementStartDate;
+    }
+
+    public void setImplementStartDate(String implementStartDate) {
+        ImplementStartDate = implementStartDate;
     }
 
     public class Sign {

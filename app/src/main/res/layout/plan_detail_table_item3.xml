@@ -7,7 +7,7 @@
     android:showDividers="middle">
 
     <TextView
-        android:layout_width="100dp"
+        android:layout_width="40dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -33,7 +33,7 @@
         android:id="@+id/ImageView" />
 
     <TextView
-        android:layout_width="75dp"
+        android:layout_width="100dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceSmall"

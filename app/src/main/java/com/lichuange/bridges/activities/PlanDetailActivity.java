@@ -56,7 +56,7 @@ public class PlanDetailActivity extends MyBaseActivity {
         projectNameText.setText(model != null ? model.getProjectName() : "");
 
         TextView timeText = (TextView)findViewById(R.id.TimeText);
-        timeText.setText(model != null ? model.getExplorDate() : "");
+        timeText.setText(model != null ? model.getImplementStartDate() : "");
 
         TextView lineNameText = (TextView)findViewById(R.id.LineNameText);
         lineNameText.setText(model != null ? model.getLineName() : "");
@@ -67,12 +67,12 @@ public class PlanDetailActivity extends MyBaseActivity {
         TextView controlEndStackText = (TextView)findViewById(R.id.ControlEndStackText);
         controlEndStackText.setText(model != null ? model.getControlEndStack() : "");
 
-        TextView workStartStackText = (TextView)findViewById(R.id.WorkStartStackText);
-        workStartStackText.setText(model != null ? model.getGZ1() : "");
-
-        String locationDesc = "东经：" + (model != null ? model.getGZ1Lon() : "") + "，北纬：" + (model != null ? model.getGZ1Lat() : "");
-        TextView workStackLocationText = (TextView)findViewById(R.id.WorkStackLocationText);
-        workStackLocationText.setText(locationDesc);
+//        TextView workStartStackText = (TextView)findViewById(R.id.WorkStartStackText);
+//        workStartStackText.setText(model != null ? model.getGZ1() : "");
+//
+//        String locationDesc = "东经：" + (model != null ? model.getGZ1Lon() : "") + "，北纬：" + (model != null ? model.getGZ1Lat() : "");
+//        TextView workStackLocationText = (TextView)findViewById(R.id.WorkStackLocationText);
+//        workStackLocationText.setText(locationDesc);
 
         // 更新图片
         ImageLoader imageLoader = ImageLoader.getInstance();
@@ -111,6 +111,42 @@ public class PlanDetailActivity extends MyBaseActivity {
             item3.put("v4", model != null ? model.getPortraitBuffer() : "");
             dataSource.add(item3);
 
+            Map<String, String> item6 = new HashMap<>();
+            item6.put("v1", "横向缓冲区");
+            item6.put("v2", "Hh");
+            item6.put("v3", "m");
+            item6.put("v4", model != null ? model.getLateralBufferOutput() : "");
+            dataSource.add(item6);
+
+            Map<String, String> item7 = new HashMap<>();
+            item7.put("v1", "工作区");
+            item7.put("v2", "G");
+            item7.put("v3", "m");
+            item7.put("v4", model != null ? model.getWorkspaceGOutput() : "");
+            dataSource.add(item7);
+
+
+
+
+            Map<String, String> item5 = new HashMap<>();
+            item5.put("v1", "下游过渡区");
+            item5.put("v2", "Lx");
+            item5.put("v3", "m");
+            item5.put("v4", model != null ? model.getDownTransitionArea() : "");
+            dataSource.add(item5);
+
+
+
+
+
+            Map<String, String> item8 = new HashMap<>();
+            item8.put("v1", "终止区");
+            item8.put("v2", "Z");
+            item8.put("v3", "m");
+            item8.put("v4", model != null ? model.getTerminatorZ() : "");
+            dataSource.add(item8);
+
+
             Map<String, String> item4 = new HashMap<>();
             item4.put("v1", "限速值");
             item4.put("v2", "V");
@@ -118,33 +154,6 @@ public class PlanDetailActivity extends MyBaseActivity {
             item4.put("v4", model != null ? model.getSpeedLimitVal() : "");
             dataSource.add(item4);
 
-            Map<String, String> item5 = new HashMap<>();
-            item5.put("v1", "下游过渡区");
-            item5.put("v2", "Ls或Lj");
-            item5.put("v3", "m");
-            item5.put("v4", model != null ? model.getDownTransitionArea() : "");
-            dataSource.add(item5);
-
-            Map<String, String> item6 = new HashMap<>();
-            item6.put("v1", "LateralBufferOutput");
-            item6.put("v2", "V");
-            item6.put("v3", "m");
-            item6.put("v4", model != null ? model.getLateralBufferOutput() : "");
-            dataSource.add(item6);
-
-            Map<String, String> item7 = new HashMap<>();
-            item7.put("v1", "WorkspaceGOutput");
-            item7.put("v2", "V");
-            item7.put("v3", "m");
-            item7.put("v4", model != null ? model.getWorkspaceGOutput() : "");
-            dataSource.add(item7);
-
-            Map<String, String> item8 = new HashMap<>();
-            item8.put("v1", "TerminatorZ");
-            item8.put("v2", "V");
-            item8.put("v3", "m");
-            item8.put("v4", model != null ? model.getTerminatorZ() : "");
-            dataSource.add(item8);
 
 
             for (int i = 0; i < dataSource.size(); ++i) {
@@ -189,9 +198,9 @@ public class PlanDetailActivity extends MyBaseActivity {
                 final TextView realStackText = (TextView)boardLayout.findViewById(R.id.RealStackText);
                 ImageView stackImageView = (ImageView)boardLayout.findViewById(R.id.ImageView);
 
-                //String indexStr = Integer.toString(i + 1);
-                indexText.setText(item.getSignName());
-                nameText.setText(item.getSignCode());
+                String indexStr = Integer.toString(i + 1);
+                indexText.setText(indexStr);
+                nameText.setText(item.getSignName());
                 designedStackText.setText(item.getSignCount());
                 realStackText.setText(item.getSignRemark());
                 imageLoader.displayImage(item.getSignImageURL(), stackImageView);
@@ -221,10 +230,10 @@ public class PlanDetailActivity extends MyBaseActivity {
                 TextView designedStackText = (TextView)boardLayout.findViewById(R.id.DesignedStackText);
                 ImageView stackImageView = (ImageView)boardLayout.findViewById(R.id.ImageView);
 
-                //String indexStr = Integer.toString(i + 1);
-                indexText.setText(item.getStackNumber());
+                String indexStr = Integer.toString(i + 1);
+                indexText.setText(indexStr);
                 nameText.setText(item.getSignName());
-                designedStackText.setText(item.getSignRemark());
+                designedStackText.setText(item.getStackNumber());
                 imageLoader.displayImage(item.getSignImageURL(), stackImageView);
 
                 boardsCheckLayout.addView(boardLayout);
