@@ -1561,10 +1561,18 @@
             "displayName": "桥梁起始位置桥头桩号",
             "unit": "",
             "selectionMode": "edit_text",
-            "defaultValueRange": "EditAllowed",
+            "defaultValueRange": "",
             "defaultValue": "",
             "valueRanges": {},
             "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "2"
+                    ],
+                    "itemValue": "EditAllowed",
+                    "subConditions": []
+                }
             ],
             "minValue": "",
             "maxValue": "",
@@ -1575,10 +1583,18 @@
             "displayName": "桥梁起始位置桥尾桩号",
             "unit": "",
             "selectionMode": "edit_text",
-            "defaultValueRange": "EditAllowed",
+            "defaultValueRange": "",
             "defaultValue": "",
             "valueRanges": {},
             "conditions": [
+                {
+                    "conditionKey": "ObjectType",
+                    "conditionValue": [
+                        "2"
+                    ],
+                    "itemValue": "EditAllowed",
+                    "subConditions": []
+                }
             ],
             "minValue": "",
             "maxValue": "",
