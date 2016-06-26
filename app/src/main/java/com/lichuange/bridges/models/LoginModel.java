@@ -24,8 +24,6 @@ public class LoginModel implements Serializable {
     private Boolean Implement;
     private Boolean Manage;
 
-    private String userName;
-
     public boolean isLoginSuccess() {
         return Status == 0
                 && token.length() > 0;
@@ -61,14 +59,6 @@ public class LoginModel implements Serializable {
 
     public void setExpirDate(String expirDate) {
         ExpirDate = expirDate;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public Boolean getExplor() {

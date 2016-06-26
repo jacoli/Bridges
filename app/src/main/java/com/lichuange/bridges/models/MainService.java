@@ -197,7 +197,6 @@ public class MainService {
                         responseStr = responsePrevProcess(responseStr);
                         Gson gson = new Gson();
                         setLoginModel(gson.fromJson(responseStr, LoginModel.class));
-                        getLoginModel().setUserName(username);
 
                         if (getLoginModel() != null
                                 && getLoginModel().isLoginSuccess()) {

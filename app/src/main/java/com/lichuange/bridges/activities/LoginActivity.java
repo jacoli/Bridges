@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lichuange.bridges.R;
+import com.lichuange.bridges.models.BGConfigsModel;
 import com.lichuange.bridges.models.LoginModel;
 import com.lichuange.bridges.models.MainService;
 import com.lichuange.bridges.models.Utils;
@@ -25,6 +28,8 @@ public class LoginActivity extends MyBaseActivity {
 
     private boolean isCreating = true;
 
+    private BGConfigsModel configsModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +39,47 @@ public class LoginActivity extends MyBaseActivity {
         final Button loginBtn = (Button)findViewById(R.id.loginbtn);
         final EditText usernameEdit = (EditText)findViewById(R.id.usernameEdit);
         final EditText passwordEdit = (EditText)findViewById(R.id.passwordEdit);
+        final CheckBox rememberUserName = (CheckBox)findViewById(R.id.rememberUserName);
+        final CheckBox rememberPassword = (CheckBox)findViewById(R.id.rememberPassword);
 
-        // mock
-//        usernameEdit.setText("heweizhi");
-//        passwordEdit.setText("123456");
+        configsModel = fetchConfig();
+
+        rememberUserName.setChecked(configsModel.isRememberUserName());
+        rememberPassword.setChecked(configsModel.isRememberPassword());
+
+        rememberUserName.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+                configsModel.setRememberUserName(arg1);
+
+                if (!arg1) {
+                    configsModel.setUserName(null);
+                    if (configsModel.isRememberPassword()) {
+                        rememberPassword.setChecked(false);
+                    }
+                }
+
+                persistConfig(configsModel);
+            }
+        });
+
+        rememberPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+                configsModel.setRememberPassword(arg1);
+
+                if (arg1) {
+                    if (!configsModel.isRememberUserName()) {
+                        rememberUserName.setChecked(true);
+                    }
+                }
+                else {
+                    configsModel.setPassword(null);
+                }
+
+                persistConfig(configsModel);
+            }
+        });
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,18 +110,8 @@ public class LoginActivity extends MyBaseActivity {
             ObjectInputStream ois = new ObjectInputStream(stream);
             LoginModel model = (LoginModel)ois.readObject();
 
-            if (usernameEdit.getText() == null || usernameEdit.getText().length() == 0) {
-                if (model != null) {
-                    usernameEdit.setText(model.getUserName());
-                }
-            }
-
-
             if (model != null && model.getExpirDate() != null && model.isLoginSuccess()) {
                 if (!Utils.isCurrentTimeExpired(model.getExpirDate())) {
-
-
-
                     // 自动登录
                     MainService.getInstance().setLoginModel(model);
                     MyToast.showMessage(getApplicationContext(), "Token仍有效，自动登录");
@@ -92,6 +124,40 @@ public class LoginActivity extends MyBaseActivity {
         }
         finally {
         }
+    }
+
+    private BGConfigsModel fetchConfig() {
+        BGConfigsModel configsModel = null;
+        try {
+            FileInputStream stream = this.openFileInput(BGConfigsModel.configFileName);
+            ObjectInputStream ois = new ObjectInputStream(stream);
+            configsModel = (BGConfigsModel)ois.readObject();
+        }
+        catch (Exception e) {
+        }
+        finally {
+        }
+
+        if (configsModel == null) {
+            configsModel = new BGConfigsModel();
+            configsModel.setRememberUserName(true);
+            configsModel.setRememberPassword(false);
+        }
+
+        return configsModel;
+    }
+
+    private void persistConfig(BGConfigsModel model) {
+        try {
+            FileOutputStream stream = this.openFileOutput(BGConfigsModel.configFileName, MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(stream);
+            oos.writeObject(model);//td is an Instance of TableData;
+        }
+        catch (Exception e) {
+        }
+        finally {
+        }
+
     }
 
     @Override
@@ -110,17 +176,17 @@ public class LoginActivity extends MyBaseActivity {
                 FileOutputStream stream = this.openFileOutput("login.s", MODE_PRIVATE);
                 ObjectOutputStream oos = new ObjectOutputStream(stream);
                 oos.writeObject(model);//td is an Instance of TableData;
-
-                EditText usernameEdit = (EditText)findViewById(R.id.usernameEdit);
-                if (usernameEdit.getText() == null || usernameEdit.getText().length() == 0) {
-                    usernameEdit.setText(model.getUserName());
-                }
             }
             catch (Exception e) {
             }
             finally {
             }
         }
+
+        EditText usernameEdit = (EditText)findViewById(R.id.usernameEdit);
+        EditText passwordEdit = (EditText)findViewById(R.id.passwordEdit);
+        usernameEdit.setText(configsModel.getUserName());
+        passwordEdit.setText(configsModel.getPassword());
     }
 
     @Override
@@ -144,6 +210,27 @@ public class LoginActivity extends MyBaseActivity {
                 }
                 finally {
                 }
+
+
+                EditText usernameEdit = (EditText)findViewById(R.id.usernameEdit);
+                EditText passwordEdit = (EditText)findViewById(R.id.passwordEdit);
+
+                if (configsModel.isRememberUserName()) {
+                    configsModel.setUserName(usernameEdit.getText().toString());
+                }
+                else {
+                    configsModel.setUserName(null);
+                }
+
+                if (configsModel.isRememberPassword()) {
+                    configsModel.setPassword(passwordEdit.getText().toString());
+                }
+                else {
+                    configsModel.setPassword(null);
+                }
+
+                persistConfig(configsModel);
+
 
                 MyToast.showMessage(getApplicationContext(), "登录成功");
 
