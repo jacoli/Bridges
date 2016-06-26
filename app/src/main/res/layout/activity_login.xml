@@ -117,7 +117,16 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="版本号：V1.0.3"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:id="@+id/versonText"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="更换服务器地址"
+        android:id="@+id/serveIPBtn" />
 
 </RelativeLayout>
 

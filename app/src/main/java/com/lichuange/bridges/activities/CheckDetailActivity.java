@@ -156,7 +156,7 @@ public class CheckDetailActivity extends MyBaseActivity {
             setTitleBarStatus("定位成功");
         }
         else {
-            setTitleBarStatus("定位中，请稍后...");
+            setTitleBarStatus("定位中，请稍后...确保GPS处于开启状态");
         }
 
         locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, new MyLocationListener() {

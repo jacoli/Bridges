@@ -217,9 +217,9 @@
                 {
                     "conditionKey": "ObjectType",
                     "conditionValue": [
-                        "5"
+                        "6"
                     ],
-                    "itemValue": "ObjectType_5",
+                    "itemValue": "ObjectType_6",
                     "subConditions": []
                 }
             ]
@@ -1536,11 +1536,11 @@
         },
         {
             "itemKey": "WindingStart",
-            "displayName": "弯道起点位置",
+            "displayName": "弯道起点桩号",
             "unit": "m",
             "selectionMode": "edit_text",
             "defaultValueRange": "",
-            "defaultValue": "",
+            "defaultValue": "K",
             "valueRanges": {},
             "conditions": [
                 {
@@ -1558,11 +1558,11 @@
         },
         {
             "itemKey": "BridgeZH1",
-            "displayName": "桥梁起始位置桥头桩号",
+            "displayName": "桥梁起始桩号",
             "unit": "",
             "selectionMode": "edit_text",
             "defaultValueRange": "",
-            "defaultValue": "",
+            "defaultValue": "K",
             "valueRanges": {},
             "conditions": [
                 {
@@ -1580,11 +1580,11 @@
         },
         {
             "itemKey": "BridgeZH2",
-            "displayName": "桥梁起始位置桥尾桩号",
+            "displayName": "桥梁结束桩号",
             "unit": "",
             "selectionMode": "edit_text",
             "defaultValueRange": "",
-            "defaultValue": "",
+            "defaultValue": "K",
             "valueRanges": {},
             "conditions": [
                 {
@@ -1602,11 +1602,11 @@
         },
         {
             "itemKey": "QZH1",
-            "displayName": "上一个隧道前端桩号",
+            "displayName": "上一个隧道起始桩号",
             "unit": "",
             "selectionMode": "edit_text",
             "defaultValueRange": "",
-            "defaultValue": "",
+            "defaultValue": "K",
             "valueRanges": {},
             "conditions": [
                 {
@@ -1614,8 +1614,17 @@
                     "conditionValue": [
                         "3"
                     ],
-                    "itemValue": "EditAllowed",
-                    "subConditions": []
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "TunnelType",
+                            "conditionValue": [
+                                "3"
+                            ],
+                            "itemValue": "EditAllowed",
+                            "subConditions": []
+                        }
+                    ]
                 }
             ],
             "minValue": "",
@@ -1624,11 +1633,11 @@
         },
         {
             "itemKey": "QZH2",
-            "displayName": "上一个隧道尾端桩号",
+            "displayName": "上一个隧道结束桩号",
             "unit": "",
             "selectionMode": "edit_text",
             "defaultValueRange": "",
-            "defaultValue": "",
+            "defaultValue": "K",
             "valueRanges": {},
             "conditions": [
                 {
@@ -1636,8 +1645,17 @@
                     "conditionValue": [
                         "3"
                     ],
-                    "itemValue": "EditAllowed",
-                    "subConditions": []
+                    "itemValue": "",
+                    "subConditions": [
+                        {
+                            "conditionKey": "TunnelType",
+                            "conditionValue": [
+                                "3"
+                            ],
+                            "itemValue": "EditAllowed",
+                            "subConditions": []
+                        }
+                    ]
                 }
             ],
             "minValue": "",
@@ -1646,11 +1664,11 @@
         },
         {
             "itemKey": "SZH1",
-            "displayName": "进行养护作业的隧道前端桩号",
+            "displayName": "隧道起始桩号",
             "unit": "",
             "selectionMode": "edit_text",
             "defaultValueRange": "",
-            "defaultValue": "",
+            "defaultValue": "K",
             "valueRanges": {},
             "conditions": [
                 {
@@ -1668,11 +1686,11 @@
         },
         {
             "itemKey": "SZH2",
-            "displayName": "进行养护作业的隧道尾端桩号",
+            "displayName": "隧道结束桩号",
             "unit": "",
             "selectionMode": "edit_text",
             "defaultValueRange": "",
-            "defaultValue": "",
+            "defaultValue": "K",
             "valueRanges": {},
             "conditions": [
                 {

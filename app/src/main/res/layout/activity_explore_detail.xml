@@ -285,11 +285,11 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@drawable/bg_btn"
             android:layout_weight="0.5"
             android:layout_margin="5dp"
-            android:text="删除"
-            android:id="@+id/deleteBtn"/>
+            android:background="@drawable/bg_btn"
+            android:text="暂存"
+            android:id="@+id/saveBtn" />
 
         <Button
             android:layout_width="0dp"
@@ -299,6 +299,16 @@
             android:background="@drawable/bg_btn"
             android:text="上传"
             android:id="@+id/uploadBtn" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_btn"
+            android:layout_weight="0.5"
+            android:layout_margin="5dp"
+            android:text="删除"
+            android:id="@+id/deleteBtn"/>
+
     </LinearLayout>
 
 </LinearLayout>

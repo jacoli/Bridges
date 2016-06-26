@@ -25,4 +25,5 @@
 
     <color name="list_item_text">#5b5b58</color>
     <color name="list_item_text_high">#4287e1</color>
+    <color name="list_item_subtitle_text">#9f9f9d</color>
 </resources>

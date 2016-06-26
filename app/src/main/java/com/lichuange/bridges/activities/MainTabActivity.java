@@ -64,7 +64,7 @@ public class MainTabActivity extends MyBaseActivity implements View.OnClickListe
         checkItemView.setOnClickListener(this);
 
         // 第一次启动时选中第0个tab
-        setTabSelection(2);
+        setTabSelection(0);
     }
 
     @Override

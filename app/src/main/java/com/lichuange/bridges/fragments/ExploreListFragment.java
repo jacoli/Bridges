@@ -78,17 +78,18 @@ public class ExploreListFragment extends Fragment {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 if (position == getCount() - 1) {
-                    View v = getActivity().getLayoutInflater().inflate(R.layout.list_item_base_action, null);
+                    View v = getActivity().getLayoutInflater().inflate(R.layout.list_item_base_action_button, null);
                     TextView textView = (TextView)v.findViewById(R.id.textView);
                     textView.setText("创建新的踏勘任务");
                     return v;
                 }
                 else {
                     ExploreModel model = modelList.get(position);
-                    String desc = model.getProjectName() + "  " + model.getExplorDate();
-                    View v = getActivity().getLayoutInflater().inflate(R.layout.list_item_base_action, null);
+                    View v = getActivity().getLayoutInflater().inflate(R.layout.list_item_base_action_with_subtitle, null);
                     TextView textView = (TextView)v.findViewById(R.id.textView);
-                    textView.setText(desc);
+                    TextView textView2 = (TextView)v.findViewById(R.id.textView2);
+                    textView.setText(model.getProjectName());
+                    textView2.setText(model.getExplorDate());
                     return v;
                 }
             }

@@ -148,7 +148,7 @@ public class ExploreDetailActivity extends MyBaseActivity {
             setTitleBarStatus("定位成功");
         }
         else {
-            setTitleBarStatus("定位中，请稍后...");
+            setTitleBarStatus("定位中，请稍后...确保GPS处于开启状态");
         }
 
         locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, new MyLocationListener() {
@@ -245,7 +245,13 @@ public class ExploreDetailActivity extends MyBaseActivity {
         final TextView workStartStackText = (TextView)layout.findViewById(R.id.WorkStartStackText);
         final Button workStartStackBtn = (Button)layout.findViewById(R.id.WorkStartStackBtn);
 
-        editText.setText(model.getParams().get("GZ1"));
+
+        String startWorkStack = model.getParams().get("GZ1");
+        if (startWorkStack == null || startWorkStack.length() == 0) {
+            startWorkStack = "K";
+        }
+
+        editText.setText(startWorkStack);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -338,7 +344,12 @@ public class ExploreDetailActivity extends MyBaseActivity {
         LinearLayout layout = (LinearLayout)findViewById(R.id.WorkEndStackLayout);
         final EditText editText = (EditText)layout.findViewById(R.id.edit_text);
 
-        editText.setText(model.getParams().get("GZ2"));
+        String endWorkStack = model.getParams().get("GZ2");
+        if (endWorkStack == null || endWorkStack.length() == 0) {
+            endWorkStack = "K";
+        }
+
+        editText.setText(endWorkStack);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -406,7 +417,7 @@ public class ExploreDetailActivity extends MyBaseActivity {
         paramName.setText(item.getDisplayName());
 
 
-        String valueRange = "范围:" + item.getMinValue() + "-" + item.getMaxValue();
+        String valueRange = "" + item.getUnit() + ", 范围:" + item.getMinValue() + "-" + item.getMaxValue();
         valueRangeText.setText(valueRange);
 
         String value = model.getParams().get(item.getItemKey());
@@ -488,7 +499,7 @@ public class ExploreDetailActivity extends MyBaseActivity {
             String value = model.getParams().get(item.getItemKey());
             if (value == null || value.length() == 0) {
                 value = item.getDefaultValue();
-                model.getParams().put(item.getItemKey(), item.getDefaultValue());
+                //model.getParams().put(item.getItemKey(), item.getDefaultValue());
             }
 
             editText.setText(value);
