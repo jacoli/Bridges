@@ -6,12 +6,13 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.FormBody;
 import okhttp3.Headers;
@@ -44,7 +45,7 @@ public class MainService {
 
     public static final int MSG_LOAD_EXPLORE_PARAMS_META_SUCCESS = 0x8001;
 
-    public static final String serverBaseUrl = "http://139.196.200.114:8888";
+    public String serverBaseUrl = "http://139.196.200.114:8888";
 
     private OkHttpClient httpClient;
     private LoginModel loginModel;
@@ -62,6 +63,22 @@ public class MainService {
         httpClient = new OkHttpClient();
         cachedProjects = new HashMap<>();
         exploreList = new ArrayList<>();
+    }
+
+    public boolean setServerAddress(String address) {
+        if (address.length() == 0) {
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile("\\b((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\b");
+        Matcher matcher = pattern.matcher(address); //以验证127.400.600.2为例
+        if (!matcher.matches()) {
+            return false;
+        }
+
+        serverBaseUrl = "http://" + address + ":8888";
+
+        return true;
     }
 
     public LoginModel getLoginModel() {

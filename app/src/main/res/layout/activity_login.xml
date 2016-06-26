@@ -118,7 +118,6 @@
             android:text="登录"
             android:id="@+id/loginbtn" />
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -144,11 +143,14 @@
         android:id="@+id/versonText"/>
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:text="更换服务器地址"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="-7dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:background="@drawable/bg_btn_clear"
+        android:text="服务器地址"
         android:id="@+id/serveIPBtn" />
 
 </RelativeLayout>

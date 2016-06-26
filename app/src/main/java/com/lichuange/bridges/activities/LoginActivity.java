@@ -1,7 +1,6 @@
 package com.lichuange.bridges.activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -36,13 +35,16 @@ public class LoginActivity extends MyBaseActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
 
-        final Button loginBtn = (Button)findViewById(R.id.loginbtn);
-        final EditText usernameEdit = (EditText)findViewById(R.id.usernameEdit);
-        final EditText passwordEdit = (EditText)findViewById(R.id.passwordEdit);
-        final CheckBox rememberUserName = (CheckBox)findViewById(R.id.rememberUserName);
-        final CheckBox rememberPassword = (CheckBox)findViewById(R.id.rememberPassword);
+        final Button loginBtn = (Button) findViewById(R.id.loginbtn);
+        final EditText usernameEdit = (EditText) findViewById(R.id.usernameEdit);
+        final EditText passwordEdit = (EditText) findViewById(R.id.passwordEdit);
+        final CheckBox rememberUserName = (CheckBox) findViewById(R.id.rememberUserName);
+        final CheckBox rememberPassword = (CheckBox) findViewById(R.id.rememberPassword);
+        final Button serverIPBtn = (Button) findViewById(R.id.serveIPBtn);
 
-        configsModel = fetchConfig();
+        configsModel = BGConfigsModel.fetch(this);
+
+        MainService.getInstance().setServerAddress(configsModel.getServerAddress());
 
         rememberUserName.setChecked(configsModel.isRememberUserName());
         rememberPassword.setChecked(configsModel.isRememberPassword());
@@ -59,7 +61,7 @@ public class LoginActivity extends MyBaseActivity {
                     }
                 }
 
-                persistConfig(configsModel);
+                configsModel.persist(LoginActivity.this);
             }
         });
 
@@ -72,12 +74,20 @@ public class LoginActivity extends MyBaseActivity {
                     if (!configsModel.isRememberUserName()) {
                         rememberUserName.setChecked(true);
                     }
-                }
-                else {
+                } else {
                     configsModel.setPassword(null);
                 }
 
-                persistConfig(configsModel);
+                configsModel.persist(LoginActivity.this);
+            }
+        });
+
+        serverIPBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isCreating = true;
+                Intent intent = new Intent(LoginActivity.this, ServerAddressActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -108,7 +118,7 @@ public class LoginActivity extends MyBaseActivity {
         try {
             FileInputStream stream = this.openFileInput("login.s");
             ObjectInputStream ois = new ObjectInputStream(stream);
-            LoginModel model = (LoginModel)ois.readObject();
+            LoginModel model = (LoginModel) ois.readObject();
 
             if (model != null && model.getExpirDate() != null && model.isLoginSuccess()) {
                 if (!Utils.isCurrentTimeExpired(model.getExpirDate())) {
@@ -119,45 +129,9 @@ public class LoginActivity extends MyBaseActivity {
                     startActivity(intent);
                 }
             }
+        } catch (Exception e) {
+        } finally {
         }
-        catch (Exception e) {
-        }
-        finally {
-        }
-    }
-
-    private BGConfigsModel fetchConfig() {
-        BGConfigsModel configsModel = null;
-        try {
-            FileInputStream stream = this.openFileInput(BGConfigsModel.configFileName);
-            ObjectInputStream ois = new ObjectInputStream(stream);
-            configsModel = (BGConfigsModel)ois.readObject();
-        }
-        catch (Exception e) {
-        }
-        finally {
-        }
-
-        if (configsModel == null) {
-            configsModel = new BGConfigsModel();
-            configsModel.setRememberUserName(true);
-            configsModel.setRememberPassword(false);
-        }
-
-        return configsModel;
-    }
-
-    private void persistConfig(BGConfigsModel model) {
-        try {
-            FileOutputStream stream = this.openFileOutput(BGConfigsModel.configFileName, MODE_PRIVATE);
-            ObjectOutputStream oos = new ObjectOutputStream(stream);
-            oos.writeObject(model);//td is an Instance of TableData;
-        }
-        catch (Exception e) {
-        }
-        finally {
-        }
-
     }
 
     @Override
@@ -229,7 +203,7 @@ public class LoginActivity extends MyBaseActivity {
                     configsModel.setPassword(null);
                 }
 
-                persistConfig(configsModel);
+                configsModel.persist(this);
 
 
                 MyToast.showMessage(getApplicationContext(), "登录成功");
