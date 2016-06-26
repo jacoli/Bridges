@@ -14,7 +14,9 @@ import android.widget.TextView;
 import com.lichuange.bridges.R;
 import com.lichuange.bridges.activities.ExploreDetailActivity;
 import com.lichuange.bridges.models.ExploreModel;
+import com.lichuange.bridges.models.LoginModel;
 import com.lichuange.bridges.models.MainService;
+import com.lichuange.bridges.views.MyToast;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -99,6 +101,15 @@ public class ExploreListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                LoginModel loginModel = MainService.getInstance().getLoginModel();
+                boolean permission = loginModel.getManage() || loginModel.getExplor();
+                if (!permission) {
+                    MyToast.showMessage(getActivity(), "没有权限");
+                    return;
+                }
+
+
                 Intent intent = new Intent(getActivity(), ExploreDetailActivity.class);
                 if (position < modelList.size()) {
                     intent.putExtra(ExploreDetailActivity.EXPLORE_EXTRA_MODEL_ID, modelList.get(position).getModelId());

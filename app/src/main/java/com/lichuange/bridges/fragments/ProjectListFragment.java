@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.lichuange.bridges.R;
 import com.lichuange.bridges.activities.CheckDetailActivity;
+import com.lichuange.bridges.models.LoginModel;
 import com.lichuange.bridges.models.MainService;
 import com.lichuange.bridges.models.ProjectsModel;
 import com.lichuange.bridges.views.MyToast;
@@ -129,6 +130,13 @@ public class ProjectListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                LoginModel loginModel = MainService.getInstance().getLoginModel();
+                boolean permission = loginModel.getManage() || loginModel.getImplement();
+                if (!permission) {
+                    MyToast.showMessage(getActivity(), "没有权限");
+                    return;
+                }
+
                 ProjectsModel model = MainService.getInstance().getProjectsModel();
                 if (model != null) {
                     List<ProjectsModel.ProjectInfo> items =  model.getItems();

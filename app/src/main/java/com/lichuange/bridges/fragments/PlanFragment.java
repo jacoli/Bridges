@@ -16,13 +16,14 @@ import com.lichuange.bridges.R;
 import com.lichuange.bridges.activities.CheckDetailActivity;
 import com.lichuange.bridges.activities.PlanListActivity;
 import com.lichuange.bridges.activities.WebViewActivity;
+import com.lichuange.bridges.models.LoginModel;
 import com.lichuange.bridges.models.MainService;
+import com.lichuange.bridges.views.MyToast;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PlanFragment extends Fragment {
-
     final String[] models = {"现场踏勘", "方案设计", "方案审批", "实施方案"};
 
     public PlanFragment() {
@@ -65,6 +66,27 @@ public class PlanFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //final String[] models = {"现场踏勘", "方案设计", "方案审批", "实施方案"};
+
+                boolean permission = false;
+                LoginModel loginModel = MainService.getInstance().getLoginModel();
+                if (0 == position) {
+                    permission = loginModel.getManage() || loginModel.getExplor();
+                } else if (1 == position) {
+                    permission = loginModel.getManage() || loginModel.getScheme();
+                } else if (2 == position) {
+                    permission = loginModel.getManage() || loginModel.getAudit1() || loginModel.getAudit2() ||
+                    loginModel.getAudit3() || loginModel.getExternalAuditor();
+                } else {
+                    permission = loginModel.getManage() || loginModel.getExplor() || loginModel.getImplement();
+                }
+
+                if (!permission) {
+                    MyToast.showMessage(getActivity(), "没有权限");
+                    return;
+                }
+
+
                 if (position < 3) {
                     Intent intent = new Intent(getActivity(), WebViewActivity.class);
                     String token = MainService.getInstance().getLoginModel().getToken();

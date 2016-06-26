@@ -82,7 +82,7 @@ public class ExploreDetailActivity extends MyBaseActivity {
         // 设置参数元信息
         paramsModel = ExploreParamsMetaInfo.getParamsModel();
         if (paramsModel == null) {
-            MyToast.showMessage(getBaseContext(), "开始加载参数元信息");
+            MyToast.showMessage(getBaseContext(), "参数初始化...");
 
 
             Runnable networkTask = new Runnable() {
@@ -112,6 +112,20 @@ public class ExploreDetailActivity extends MyBaseActivity {
         model = MainService.getInstance().findExploreModel(modelId);
         model.setExplorDate(Utils.getCurrentDateStr());
 
+        // 暂存按钮
+        Button saveBtn = (Button)findViewById(R.id.saveBtn);
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (persistAllExplores()) {
+                    MyToast.showMessage(getBaseContext(), "暂存成功");
+                }
+                else {
+                    MyToast.showMessage(getBaseContext(), "暂存失败");
+                }
+            }
+        });
+
         // 上传按钮
         Button uploadBtn = (Button)findViewById(R.id.uploadBtn);
         uploadBtn.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +141,7 @@ public class ExploreDetailActivity extends MyBaseActivity {
             @Override
             public void onClick(View v) {
                 MainService.getInstance().deleteExploreModel(model);
+                MyToast.showMessage(getBaseContext(), "删除成功");
                 finish();
             }
         });
@@ -160,10 +175,8 @@ public class ExploreDetailActivity extends MyBaseActivity {
         });
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-
+    private boolean persistAllExplores() {
+        boolean ret = false;
         // 数据模型持久化
         try {
             List<ExploreModel> list = MainService.getInstance().getExploreList();
@@ -172,12 +185,20 @@ public class ExploreDetailActivity extends MyBaseActivity {
             oos.writeObject(list);
             oos.close();
             stream.close();
+            ret = true;
         }
         catch (Exception e) {
             Log.e("", e.toString());
         }
-        finally {
-        }
+
+        return ret;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        persistAllExplores();
     }
 
     private void updateProjectNameView() {
@@ -692,13 +713,14 @@ public class ExploreDetailActivity extends MyBaseActivity {
         switch (msgCode) {
             case MainService.MSG_SEND_EXPLORE_SUCCESS:
                 MyToast.showMessage(getBaseContext(), "上传踏勘数据成功");
+                MainService.getInstance().deleteExploreModel(model);
                 finish();
                 break;
             case MainService.MSG_SEND_EXPLORE_FAILED:
                 MyToast.showMessage(getBaseContext(), "上传踏勘数据失败");
                 break;
             case MainService.MSG_LOAD_EXPLORE_PARAMS_META_SUCCESS:
-                MyToast.showMessage(getBaseContext(), "加载参数元信息成功");
+                MyToast.showMessage(getBaseContext(), "参数初始化成功");
                 paramsModel = ExploreParamsMetaInfo.getParamsModel();
                 reloadParamItemsViews();
                 break;
