@@ -676,7 +676,7 @@ public class MainService {
             return false;
         }
 
-        String url = serverBaseUrl + "/Maintain/APP.ashx?Type=DeleteSensorCheck";
+        String url = serverBaseUrl + "/Maintain/APP.ashx?Type=DeleteSignCheck";
         BGRequest req = new BGRequest() {
             @Override
             public void success(MsgResponseBase model) {
@@ -703,8 +703,8 @@ public class MainService {
         };
         return req.addParam("Token", getLoginModel().getToken())
                 .addParam("ProjectID", ProjectID)
-                .addParam("ProjectSensorID", "")
-                .addParam("DelType", "2")
+                .addParam("ID", "")
+                .addParam("DelType", "0")
                 .send(url, MsgResponseBase.class);
     }
 
@@ -734,12 +734,13 @@ public class MainService {
             @Override
             public void run() {
                 try {
-                    String url = serverBaseUrl + "/Maintain/APP.ashx?Type=DeleteSensorCheck";
+                    String url = serverBaseUrl + "/Maintain/APP.ashx?Type=DeleteSignCheck";
 
                     FormBody body = new FormBody.Builder()
                             .add("Token", getLoginModel().getToken())
                             .add("ProjectID", ProjectID)
-                            .add("ProjectSensorID", sensorId)
+                            .add("ID", sensorId)
+                            .add("DelType", "1")
                             .build();
 
                     Request request = new Request.Builder()
