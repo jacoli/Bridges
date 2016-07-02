@@ -2,6 +2,7 @@ package com.lichuange.bridges.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.lichuange.bridges.R;
 import com.lichuange.bridges.models.BGConfigsModel;
+import com.lichuange.bridges.models.ExploreModel;
 import com.lichuange.bridges.models.LoginModel;
 import com.lichuange.bridges.models.MainService;
 import com.lichuange.bridges.models.Utils;
@@ -21,6 +23,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.List;
 
 
 public class LoginActivity extends MyBaseActivity {
@@ -147,8 +150,6 @@ public class LoginActivity extends MyBaseActivity {
             isCreating = false;
         }
         else {
-            MainService.getInstance().logout();
-
             try {
                 LoginModel model = MainService.getInstance().getLoginModel();
                 model.setToken("");
@@ -160,12 +161,35 @@ public class LoginActivity extends MyBaseActivity {
             }
             finally {
             }
+
+            MainService.getInstance().logout();
+
+            persistAllExplores();
         }
 
         EditText usernameEdit = (EditText)findViewById(R.id.usernameEdit);
         EditText passwordEdit = (EditText)findViewById(R.id.passwordEdit);
         usernameEdit.setText(configsModel.getUserName());
         passwordEdit.setText(configsModel.getPassword());
+    }
+
+    private boolean persistAllExplores() {
+        boolean ret = false;
+        // 数据模型持久化
+        try {
+            List<ExploreModel> list = MainService.getInstance().getExploreList();
+            FileOutputStream stream = this.openFileOutput("explore_list.s", MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(stream);
+            oos.writeObject(list);
+            oos.close();
+            stream.close();
+            ret = true;
+        }
+        catch (Exception e) {
+            Log.e("", e.toString());
+        }
+
+        return ret;
     }
 
     @Override

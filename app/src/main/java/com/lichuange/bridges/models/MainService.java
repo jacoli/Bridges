@@ -251,43 +251,48 @@ public class MainService {
     }
 
     public boolean logout() {
-        if (!getLoginModel().isLoginSuccess()) {
-            return false;
-        }
+//        if (!getLoginModel().isLoginSuccess()) {
+//            return false;
+//        }
 
-        final String token = getLoginModel().getToken();
+        //final String token = getLoginModel().getToken();
 
-        Runnable networkTask = new Runnable() {
+        setLoginModel(null);
+        setProjectsModel(null);
+        cachedProjects.clear();
+        exploreList.clear();
 
-            @Override
-            public void run() {
-                try {
-                    String url = serverBaseUrl + "/Maintain/APP.ashx?Type=Loginout";
-
-                    FormBody body = new FormBody.Builder()
-                            .add("Token", token)
-                            .build();
-
-                    Request request = new Request.Builder()
-                            .url(url)
-                            .post(body)
-                            .build();
-
-                    getLoginModel().setToken("");
-                    Response response = httpClient.newCall(request).execute();
-                    if (response.isSuccessful()) {
-                        String responseStr = response.body().string();
-                        Log.i("MainService", responseStr);
-                    }
-                    else {
-                    }
-                }
-                catch (IOException e) {
-                }
-            }
-        };
-
-        new Thread(networkTask).start();
+//        Runnable networkTask = new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                try {
+//                    String url = serverBaseUrl + "/Maintain/APP.ashx?Type=Loginout";
+//
+//                    FormBody body = new FormBody.Builder()
+//                            .add("Token", token)
+//                            .build();
+//
+//                    Request request = new Request.Builder()
+//                            .url(url)
+//                            .post(body)
+//                            .build();
+//
+//                    getLoginModel().setToken("");
+//                    Response response = httpClient.newCall(request).execute();
+//                    if (response.isSuccessful()) {
+//                        String responseStr = response.body().string();
+//                        Log.i("MainService", responseStr);
+//                    }
+//                    else {
+//                    }
+//                }
+//                catch (IOException e) {
+//                }
+//            }
+//        };
+//
+//        new Thread(networkTask).start();
 
         return true;
     }
