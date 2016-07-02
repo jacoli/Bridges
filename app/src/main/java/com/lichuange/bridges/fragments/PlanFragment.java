@@ -78,7 +78,7 @@ public class PlanFragment extends Fragment {
                     permission = loginModel.getManage() || loginModel.getAudit1() || loginModel.getAudit2() ||
                     loginModel.getAudit3() || loginModel.getExternalAuditor();
                 } else {
-                    permission = loginModel.getManage() || loginModel.getExplor() || loginModel.getImplement();
+                    permission = loginModel.getManage() || loginModel.getImplement();
                 }
 
                 if (!permission) {

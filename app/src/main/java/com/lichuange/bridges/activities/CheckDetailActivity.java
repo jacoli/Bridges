@@ -325,8 +325,7 @@ public class CheckDetailActivity extends MyBaseActivity {
                             @Override
                             public void onClick(View v) {
                                 cleanTmpDeleteBtn();
-                                item.setActualStackNumber("");
-                                realStackText.setText("");
+                                MainService.getInstance().sendDeleteSignCheck(projectId, item.getID(), handler);
                             }
                         });
 
@@ -601,6 +600,13 @@ public class CheckDetailActivity extends MyBaseActivity {
                 break;
             case MainService.MSG_DELETE_SENSOR_CHECK_FAILED:
                 Toast.makeText(getBaseContext(), "删除传感器失败", Toast.LENGTH_SHORT).show();
+                break;
+            case MainService.MSG_DELETE_SIGN_CHECK_SUCCESS:
+                Toast.makeText(getBaseContext(), "删除标志成功", Toast.LENGTH_SHORT).show();
+                updateSignItemsViews();
+                break;
+            case MainService.MSG_DELETE_SIGN_CHECK_FAILED:
+                Toast.makeText(getBaseContext(), "删除标志失败", Toast.LENGTH_SHORT).show();
                 break;
             case MainService.MSG_DELETE_ALL_SENSOR_CHECK_SUCCESS:
                 Toast.makeText(getBaseContext(), "重新检查成功", Toast.LENGTH_SHORT).show();

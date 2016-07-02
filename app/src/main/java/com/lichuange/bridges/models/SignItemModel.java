@@ -4,6 +4,7 @@ package com.lichuange.bridges.models;
  * Created by lichuange on 16/4/2.
  */
 public class SignItemModel {
+    private String ID;
     private String SignName; // 标志名
     private String SignCode; // 标志编码
     private String SignImageFileName; // 标志图案URL地址
@@ -67,5 +68,13 @@ public class SignItemModel {
 
     public void setStatus(String status) {
         Status = status;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }

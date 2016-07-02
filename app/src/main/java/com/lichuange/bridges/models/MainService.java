@@ -47,6 +47,9 @@ public class MainService {
 
     public static final int MSG_LOAD_EXPLORE_PARAMS_META_SUCCESS = 0x10001;
 
+    public static final int MSG_DELETE_SIGN_CHECK_SUCCESS = 0xa001;
+    public static final int MSG_DELETE_SIGN_CHECK_FAILED = 0xa002;
+
     public String serverBaseUrl = "http://139.196.200.114:8888";
 
     private OkHttpClient httpClient;
@@ -708,6 +711,52 @@ public class MainService {
                 .send(url, MsgResponseBase.class);
     }
 
+    public boolean sendDeleteSignCheck(final String ProjectID,
+                                       final String signId,
+                                            final Handler handler) {
+        if (getLoginModel() == null || !getLoginModel().isLoginSuccess()) {
+            return false;
+        }
+
+        if (ProjectID.length() == 0) {
+            return false;
+        }
+
+        if (ProjectID.length() == 0 || signId.length() == 0) {
+            return false;
+        }
+
+        ProjectModel detailModel = cachedProjects.get(ProjectID);
+        if (detailModel == null) {
+            return false;
+        }
+
+        String url = serverBaseUrl + "/Maintain/APP.ashx?Type=DeleteSignCheck";
+        BGRequest req = new BGRequest() {
+            @Override
+            public void success(MsgResponseBase model) {
+                ProjectModel tmpmodel = findDetailForProjectId(ProjectID);
+
+                if (tmpmodel != null) {
+                    tmpmodel.deleteSignWithID(signId);
+                }
+
+                notifyMsg(handler, MSG_DELETE_SIGN_CHECK_SUCCESS, model);
+            }
+
+            @Override
+            public void failed(MsgResponseBase model) {
+                notifyMsg(handler, MSG_DELETE_SIGN_CHECK_FAILED, model);
+            }
+        };
+        return req.addParam("Token", getLoginModel().getToken())
+                .addParam("ProjectID", ProjectID)
+                .addParam("ID", signId)
+                .addParam("DelType", "1")
+                .send(url, MsgResponseBase.class);
+    }
+
+
     public boolean sendDeleteSensorCheck(final String ProjectID,
                                          final String SensorNumber,
                                          final Handler handler) {
@@ -740,7 +789,7 @@ public class MainService {
                             .add("Token", getLoginModel().getToken())
                             .add("ProjectID", ProjectID)
                             .add("ID", sensorId)
-                            .add("DelType", "1")
+                            .add("DelType", "2")
                             .build();
 
                     Request request = new Request.Builder()

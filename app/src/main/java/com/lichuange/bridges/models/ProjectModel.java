@@ -48,6 +48,18 @@ public class ProjectModel {
         return null;
     }
 
+    public void deleteSignWithID(String signId) {
+        if (signId == null || signId.length() == 0) {
+            return;
+        }
+
+        for (SignItemModel item : SignItems) {
+            if (item.getID().equals(signId)) {
+                item.setActualStackNumber("");
+            }
+        }
+    }
+
     public void deleteSensorForSensorNumber(String sensorNumber) {
         if (SensorItems == null) {
             return;
