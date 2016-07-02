@@ -27,23 +27,33 @@ public class ServerAddressActivity extends MyBaseActivity {
         configsModel = BGConfigsModel.fetch(this);
 
         oldServerAddress.setText(configsModel.getServerAddress());
+        newServerAddress.setText(configsModel.getServerPort());
+
+        final ServerAddressActivity activity = this;
 
         modifyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String newAddress = newServerAddress.getText().toString();
+                String newAddress = oldServerAddress.getText().toString();
                 if (newAddress.length() == 0) {
                     MyToast.showMessage(getApplicationContext(), "服务器地址不能为空");
                     return;
                 }
 
-                if (!MainService.getInstance().setServerAddress(newAddress)) {
+                String port = newServerAddress.getText().toString();
+                if (port == null || port.length() == 0) {
+                    MyToast.showMessage(getApplicationContext(), "服务器端口不能为空");
+                    return;
+                }
+
+                if (!MainService.getInstance().setServerAddress(newAddress, port)) {
                     MyToast.showMessage(getApplicationContext(), "服务器地址格式不对");
                     return;
                 }
 
+                configsModel.setServerPort(port);
                 configsModel.setServerAddress(newAddress);
-                configsModel.persist(ServerAddressActivity.this);
+                configsModel.persist(activity);
                 MyToast.showMessage(getApplicationContext(), "服务器地址修改成功");
             }
         });

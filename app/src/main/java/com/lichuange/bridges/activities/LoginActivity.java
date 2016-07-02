@@ -43,11 +43,16 @@ public class LoginActivity extends MyBaseActivity {
         final Button serverIPBtn = (Button) findViewById(R.id.serveIPBtn);
 
         configsModel = BGConfigsModel.fetch(this);
+        if (configsModel.getServerPort().length() == 0) {
+            configsModel.setServerPort("8888");
+        }
 
-        MainService.getInstance().setServerAddress(configsModel.getServerAddress());
+        MainService.getInstance().setServerAddress(configsModel.getServerAddress(), configsModel.getServerPort());
 
         rememberUserName.setChecked(configsModel.isRememberUserName());
         rememberPassword.setChecked(configsModel.isRememberPassword());
+
+        final LoginActivity activity = this;
 
         rememberUserName.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -61,7 +66,7 @@ public class LoginActivity extends MyBaseActivity {
                     }
                 }
 
-                configsModel.persist(LoginActivity.this);
+                configsModel.persist(activity);
             }
         });
 
@@ -78,7 +83,7 @@ public class LoginActivity extends MyBaseActivity {
                     configsModel.setPassword(null);
                 }
 
-                configsModel.persist(LoginActivity.this);
+                configsModel.persist(activity);
             }
         });
 

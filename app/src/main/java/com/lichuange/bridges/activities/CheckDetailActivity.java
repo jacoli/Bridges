@@ -90,6 +90,7 @@ public class CheckDetailActivity extends MyBaseActivity {
                                 onDeleteSenorBtnClicked();
                                 break;
                             case R.id.recheckBtn:
+                                MainService.getInstance().sendDeleteAllSensorCheck(projectId, handler);
                                 break;
                             default:
                                 break;
@@ -600,6 +601,14 @@ public class CheckDetailActivity extends MyBaseActivity {
                 break;
             case MainService.MSG_DELETE_SENSOR_CHECK_FAILED:
                 Toast.makeText(getBaseContext(), "删除传感器失败", Toast.LENGTH_SHORT).show();
+                break;
+            case MainService.MSG_DELETE_ALL_SENSOR_CHECK_SUCCESS:
+                Toast.makeText(getBaseContext(), "重新检查成功", Toast.LENGTH_SHORT).show();
+                updateSignItemsViews();
+                updateSensorItemsViews();
+                break;
+            case MainService.MSG_DELETE_ALL_SENSOR_CHECK_FAILED:
+                Toast.makeText(getBaseContext(), "重新检查失败", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

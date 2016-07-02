@@ -66,7 +66,7 @@ public class ExploreDetailActivity extends MyBaseActivity {
     private ExploreParamsMetaInfo paramsModel;
 
     private Location curLocation;
-    final private String titleBarTitle = "检查详情";
+    final private String titleBarTitle = "踏勘详情";
 
     private void setTitleBarStatus(String status) {
         titleBar.setTitle(titleBarTitle + "\n" + status);
@@ -77,7 +77,7 @@ public class ExploreDetailActivity extends MyBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore_detail);
         createTitleBar();
-        titleBar.setTitle("踏勘详情");
+        titleBar.setTitle(titleBarTitle);
 
         // 设置参数元信息
         paramsModel = ExploreParamsMetaInfo.getParamsModel();

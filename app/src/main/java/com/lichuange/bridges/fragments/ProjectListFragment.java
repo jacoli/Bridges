@@ -139,7 +139,7 @@ public class ProjectListFragment extends Fragment {
 
                 ProjectsModel model = MainService.getInstance().getProjectsModel();
                 if (model != null) {
-                    List<ProjectsModel.ProjectInfo> items =  model.getItems();
+                    List<ProjectsModel.ProjectInfo> items = model.getItems();
                     if (items.size() > position) {
                         ProjectsModel.ProjectInfo projectInfo = items.get(position);
                         Intent intent = new Intent(getActivity(), CheckDetailActivity.class);
@@ -147,13 +147,19 @@ public class ProjectListFragment extends Fragment {
                         startActivity(intent);
 
                         curIndex = position;
-                        ((BaseAdapter)listView.getAdapter()).notifyDataSetChanged();
+                        ((BaseAdapter) listView.getAdapter()).notifyDataSetChanged();
                     }
                 }
             }
         });
 
-        MainService.getInstance().sendProjectsQuery(handler);
+        LoginModel loginModel = MainService.getInstance().getLoginModel();
+        if (loginModel.getManage() || loginModel.getImplement()) {
+            MainService.getInstance().sendProjectsQuery(handler);
+        }
+        else {
+            MyToast.showMessage(getActivity(), "没有权限");
+        }
 
         return selfView;
     }

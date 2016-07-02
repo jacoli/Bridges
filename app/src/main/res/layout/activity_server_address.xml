@@ -31,7 +31,7 @@ tools:context="com.lichuange.bridges.activities.ServerAddressActivity">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="原服务器地址:"
+                android:text="服务器地址:"
                 />
 
             <EditText
@@ -43,7 +43,6 @@ tools:context="com.lichuange.bridges.activities.ServerAddressActivity">
                 android:hint="请填写服务器地址"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
-                android:editable="false"
                 />
 
 
@@ -60,7 +59,7 @@ tools:context="com.lichuange.bridges.activities.ServerAddressActivity">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="新服务器地址:"
+                android:text="服务器端口:"
                 />
 
             <EditText
@@ -69,7 +68,7 @@ tools:context="com.lichuange.bridges.activities.ServerAddressActivity">
                 android:background="@drawable/bg_editview"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
-                android:hint="请填写服务器地址"
+                android:hint="请填写服务器端口"
                 android:id="@+id/newServerAddress"
                 />
 

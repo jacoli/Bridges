@@ -18,6 +18,7 @@ public class BGConfigsModel implements Serializable {
     private boolean rememberUserName;
     private boolean rememberPassword;
     private String serverAddress;
+    private String serverPort;
     private String userName;
     private String password;
 
@@ -94,9 +95,18 @@ public class BGConfigsModel implements Serializable {
             configsModel.setRememberUserName(true);
             configsModel.setRememberPassword(false);
             configsModel.setServerAddress("139.196.200.114");
+            configsModel.setServerPort("8888");
         }
 
         return configsModel;
 
+    }
+
+    public String getServerPort() {
+        return serverPort;
+    }
+
+    public void setServerPort(String serverPort) {
+        this.serverPort = serverPort;
     }
 }

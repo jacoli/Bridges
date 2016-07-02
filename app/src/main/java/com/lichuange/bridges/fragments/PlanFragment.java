@@ -90,7 +90,7 @@ public class PlanFragment extends Fragment {
                 if (position < 3) {
                     Intent intent = new Intent(getActivity(), WebViewActivity.class);
                     String token = MainService.getInstance().getLoginModel().getToken();
-                    String url = "http://139.196.200.114:8888/Maintain/APP.ashx?Type=LoginWeb&Token=" + token;
+                    String url = MainService.getInstance().serverBaseUrl + "/Maintain/APP.ashx?Type=LoginWeb&Token=" + token;
                     intent.putExtra(WebViewActivity.WEBVIEW_EXTRA_URL, url);
                     intent.putExtra(WebViewActivity.WEBVIEW_EXTRA_TITLE, models[position]);
                     startActivity(intent);

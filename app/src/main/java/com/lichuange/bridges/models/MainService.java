@@ -40,10 +40,12 @@ public class MainService {
     public static final int MSG_GET_SIGN_CHECK_FAILED = 0x6002;
     public static final int MSG_DELETE_SENSOR_CHECK_SUCCESS = 0x7001;
     public static final int MSG_DELETE_SENSOR_CHECK_FAILED = 0x7002;
-    public static final int MSG_SEND_EXPLORE_SUCCESS = 0x7001;
-    public static final int MSG_SEND_EXPLORE_FAILED = 0x7002;
+    public static final int MSG_SEND_EXPLORE_SUCCESS = 0x8001;
+    public static final int MSG_SEND_EXPLORE_FAILED = 0x8002;
+    public static final int MSG_DELETE_ALL_SENSOR_CHECK_SUCCESS = 0x9001;
+    public static final int MSG_DELETE_ALL_SENSOR_CHECK_FAILED = 0x9002;
 
-    public static final int MSG_LOAD_EXPLORE_PARAMS_META_SUCCESS = 0x8001;
+    public static final int MSG_LOAD_EXPLORE_PARAMS_META_SUCCESS = 0x10001;
 
     public String serverBaseUrl = "http://139.196.200.114:8888";
 
@@ -65,8 +67,12 @@ public class MainService {
         exploreList = new ArrayList<>();
     }
 
-    public boolean setServerAddress(String address) {
+    public boolean setServerAddress(String address, String port) {
         if (address.length() == 0) {
+            return false;
+        }
+
+        if (port.length() == 0) {
             return false;
         }
 
@@ -76,7 +82,7 @@ public class MainService {
             return false;
         }
 
-        serverBaseUrl = "http://" + address + ":8888";
+        serverBaseUrl = "http://" + address + ":" + port;
 
         return true;
     }
@@ -654,9 +660,57 @@ public class MainService {
         return true;
     }
 
+
+    public boolean sendDeleteAllSensorCheck(final String ProjectID,
+                                    final Handler handler) {
+        if (getLoginModel() == null || !getLoginModel().isLoginSuccess()) {
+            return false;
+        }
+
+        if (ProjectID.length() == 0) {
+            return false;
+        }
+
+        ProjectModel detailModel = cachedProjects.get(ProjectID);
+        if (detailModel == null) {
+            return false;
+        }
+
+        String url = serverBaseUrl + "/Maintain/APP.ashx?Type=DeleteSensorCheck";
+        BGRequest req = new BGRequest() {
+            @Override
+            public void success(MsgResponseBase model) {
+                ProjectModel tmpmodel = findDetailForProjectId(ProjectID);
+
+                if (tmpmodel != null && tmpmodel.getSignItems() != null) {
+                    List<SignItemModel> items = tmpmodel.getSignItems();
+
+                    for (int i = 0; i < items.size(); ++i) {
+                        SignItemModel item = items.get(i);
+                        item.setActualStackNumber("");
+                    }
+
+                    tmpmodel.getSensorItems().clear();
+                }
+
+                notifyMsg(handler, MSG_DELETE_ALL_SENSOR_CHECK_SUCCESS, model);
+            }
+
+            @Override
+            public void failed(MsgResponseBase model) {
+                notifyMsg(handler, MSG_DELETE_ALL_SENSOR_CHECK_FAILED, model);
+            }
+        };
+        return req.addParam("Token", getLoginModel().getToken())
+                .addParam("ProjectID", ProjectID)
+                .addParam("ProjectSensorID", "")
+                .addParam("DelType", "2")
+                .send(url, MsgResponseBase.class);
+    }
+
     public boolean sendDeleteSensorCheck(final String ProjectID,
                                          final String SensorNumber,
-                                    final Handler handler) {
+                                         final Handler handler) {
         if (getLoginModel() == null || !getLoginModel().isLoginSuccess()) {
             return false;
         }
@@ -694,6 +748,7 @@ public class MainService {
                             .build();
 
                     Response response = httpClient.newCall(request).execute();
+
                     if (response.isSuccessful()) {
                         String responseStr = response.body().string();
 
