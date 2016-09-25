@@ -15,6 +15,8 @@ import java.io.Serializable;
 public class BGConfigsModel implements Serializable {
     static public String configFileName = "bg_configs_file";
 
+    static BGConfigsModel __mainConfigModel;
+
     private boolean rememberUserName;
     private boolean rememberPassword;
     private String serverAddress;
@@ -78,6 +80,10 @@ public class BGConfigsModel implements Serializable {
     }
 
     public static BGConfigsModel fetch(ContextWrapper contextWrapper) {
+        if (__mainConfigModel != null) {
+            return __mainConfigModel;
+        }
+
         BGConfigsModel configsModel = null;
         try {
             FileInputStream stream = contextWrapper.openFileInput(BGConfigsModel.configFileName);
@@ -94,9 +100,11 @@ public class BGConfigsModel implements Serializable {
             configsModel = new BGConfigsModel();
             configsModel.setRememberUserName(true);
             configsModel.setRememberPassword(false);
-            configsModel.setServerAddress("139.196.200.114");
-            configsModel.setServerPort("8888");
+            configsModel.setServerAddress("");
+            configsModel.setServerPort("80");
         }
+
+        __mainConfigModel = configsModel;
 
         return configsModel;
 

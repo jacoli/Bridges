@@ -50,7 +50,7 @@ public class MainService {
     public static final int MSG_DELETE_SIGN_CHECK_SUCCESS = 0xa001;
     public static final int MSG_DELETE_SIGN_CHECK_FAILED = 0xa002;
 
-    public String serverBaseUrl = "http://139.196.200.114:8888";
+    public String serverBaseUrl = "";//"http://139.196.200.114:8888";
 
     private OkHttpClient httpClient;
     private LoginModel loginModel;
